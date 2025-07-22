@@ -1,0 +1,24 @@
+##Quick Start
+
+### Prerequisites
+- Node.js 16+ and npm
+- Python 3.8+ and pip
+
+### Frontend Setup
+```bash
+npm install
+npm start
+# Runs on http://localhost:3000
+
+# Web Framework
+Flask==2.3.2
+
+# Machine Learning
+scikit-learn==1.3.0
+joblib==1.3.2
+numpy==1.24.3
+pandas==2.0.3
+
+
+# Utilities
+python-dotenv==1.0.0
