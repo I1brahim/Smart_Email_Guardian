@@ -358,4 +358,4 @@ ai/
 
 ## Frontend & Backend deployment 
 **i used vercel to deploy the frontend** : https://smart-email-guardian.vercel.app/
-**for the backend i used railway** : email-guardian-backend-production.up.railway.app
+**for the backend i used railway** : https://email-guardian-backend-production.up.railway.app
