@@ -10,7 +10,7 @@ export default function EmailScanner() {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await fetch('http://localhost:5000/history');
+        const res = await fetch('http://172.17.0.2:5000/history');
         const data = await res.json();
         setHistory(data.reverse());
       } catch (err) {
@@ -321,7 +321,7 @@ const handleScan = async () => {
   setIsScanning(true);
 
   try {
-    const response = await fetch('http://localhost:5000/scan', {
+    const response = await fetch('http://172.17.0.2:5000/scan', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: emailText }),
@@ -335,15 +335,7 @@ const handleScan = async () => {
     const data = await response.json();
     console.log("Scan result:", data);
 
-   
-    const adaptedResult = {
-      [data.type]: {
-        label: data.label,
-        probability: data.probability
-      }
-    };
-
-    setResults(adaptedResult);
+    setResults(data);
     setHistory(prev => [data, ...prev]); 
   } catch (err) {
     setError(err.message);
@@ -368,7 +360,7 @@ const handleScan = async () => {
     return spamLegit && phishingLegit;
   };
 
-  const renderResultCard = (title, label, prob, type) => (
+  const renderResultCard = (title, label, probabilities, description, type) => (
     <div style={styles.resultCard}>
       <div style={styles.resultCardHeader}>
         <div style={{ ...styles.statusIndicator, ...(type === 'spam' ? styles.statusIndicatorSpam : styles.statusIndicatorPhishing) }}></div>
@@ -376,16 +368,13 @@ const handleScan = async () => {
       </div>
       <div style={styles.resultDetails}>
         <div style={styles.resultRow}><span style={styles.resultLabel}>Status:</span><span style={{ ...styles.resultValue, ...getStatusColor(label) }}>{label}</span></div>
-        <div style={styles.resultRow}><span style={styles.resultLabel}>Probability:</span><span style={styles.resultValue}>{(prob * 100).toFixed(1)}%</span></div>
-        {isEmailLegit() && (
-          <div style={styles.resultRow}>
-            <span style={styles.resultLabel}>Risk Level:</span>
-            <span style={{ ...styles.resultValue, ...getRiskColor(prob) }}>{getRiskLevel(prob)}</span>
+        {Object.entries(probabilities).map(([lbl, prob]) => (
+          <div style={styles.resultRow} key={lbl}>
+            <span style={styles.resultLabel}>{lbl}:</span>
+            <span style={styles.resultValue}>{(prob * 100).toFixed(1)}%</span>
           </div>
-        )}
-      </div>
-      <div style={styles.progressBar}>
-        <div style={{ ...styles.progressFill, ...(type === 'spam' ? styles.progressSpam : styles.progressPhishing), width: `${prob * 100}%` }}></div>
+        ))}
+        <div style={{ marginTop: '8px', color: '#6b7280', fontStyle: 'italic' }}>{description}</div>
       </div>
     </div>
   );
@@ -417,8 +406,8 @@ const handleScan = async () => {
           <div style={styles.results}>
             <h2 style={styles.resultsTitle}>Scan Results</h2>
             <div style={styles.resultsGrid}>
-              {results.spam && renderResultCard('Spam Detection', results.spam.label, results.spam.probability, 'spam')}
-              {results.phishing && renderResultCard('Phishing Detection', results.phishing.label, results.phishing.probability, 'phishing')}
+              {results.spam && renderResultCard('Spam Detection', results.spam.label, results.spam.probabilities, results.spam.description, 'spam')}
+              {results.phishing && renderResultCard('Phishing Detection', results.phishing.label, results.phishing.probabilities, results.phishing.description, 'phishing')}
             </div>
             {!isEmailLegit() && (
               <div style={styles.securityTips}>
@@ -448,17 +437,33 @@ const handleScan = async () => {
             <h2 style={styles.resultsTitle}>Scan History</h2>
             <table style={styles.table}>
               <thead style={styles.thead}>
-                <tr> 
-                  <th style={styles.th}>Label</th>
-                  <th style={styles.th}>Probability</th>
+                <tr>
+                  <th style={styles.th}>Spam Label</th>
+                  <th style={styles.th}>Spam Probabilities</th>
+                  <th style={styles.th}>Phishing Label</th>
+                  <th style={styles.th}>Phishing Probabilities</th>
                   <th style={styles.th}>Email Snippet</th>
                 </tr>
               </thead>
               <tbody>
                 {history.map((item, index) => (
                   <tr key={index} style={index % 2 === 0 ? styles.rowAlt : {}}>
-                    <td style={styles.td}>{item.label}</td>
-                    <td style={styles.td}>{(item.probability * 100).toFixed(2)}%</td>
+                    <td style={styles.td}>{item.spam?.label}</td>
+                    <td style={styles.td}>
+                      {item.spam?.probabilities &&
+                        Object.entries(item.spam.probabilities).map(([lbl, prob]) =>
+                          `${lbl}: ${(prob * 100).toFixed(1)}% `
+                        ).join(', ')
+                      }
+                    </td>
+                    <td style={styles.td}>{item.phishing?.label}</td>
+                    <td style={styles.td}>
+                      {item.phishing?.probabilities &&
+                        Object.entries(item.phishing.probabilities).map(([lbl, prob]) =>
+                          `${lbl}: ${(prob * 100).toFixed(1)}% `
+                        ).join(', ')
+                      }
+                    </td>
                     <td style={styles.td}>{item.email.slice(0, 50)}...</td>
                   </tr>
                 ))}
