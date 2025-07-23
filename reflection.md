@@ -222,8 +222,8 @@ This project serves as a strong foundation for understanding machine learning in
 
 ---
 
-**Project Repository**: [https://github.com/I1brahim/Smart_Email_Guardian/](Smart_Email_Guardian)
-**Live Demo**: [https://smart-email-guardian.vercel.app](Live Website)
-**Docker Container**: [https://hub.docker.com/r/ibrahim1011/email-guardian-backend](dockerized backend)
+**Project Repository**: ["https://github.com/I1brahim/Smart_Email_Guardian"](Smart_Email_Guardian)
+**Live Demo**: ["https://smart-email-guardian.vercel.app"](Live Website)
+**Docker Container**: ["https://hub.docker.com/r/ibrahim1011/email-guardian-backend"](dockerized backend)
 **API Documentation**: Available in `/docs` directory  
 **Security Analysis**: Detailed in `security_notes.md`
