@@ -356,6 +356,6 @@ ai/
    - **Fix**: Proper state management with `setResults()` and `setHistory()`
 
 
-## Frontend & Backend deployment :
-**i used vercel to deploy the frontend** : https://email-guardian-vercel-qu8wb1kmz-i1brahims-projects.vercel.app/
-**for the backend i used render** : 
+## Frontend & Backend deployment 
+**i used vercel to deploy the frontend** : https://smart-email-guardian.vercel.app/
+**for the backend i used railway** : email-guardian-backend-production.up.railway.app
