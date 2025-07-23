@@ -10,7 +10,7 @@ export default function EmailScanner() {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const res = await fetch('http://172.17.0.2:5000/history');
+        const res = await fetch('https://email-guardian-backend-production.up.railway.app/history');
         const data = await res.json();
         setHistory(data.reverse());
       } catch (err) {
@@ -321,7 +321,7 @@ const handleScan = async () => {
   setIsScanning(true);
 
   try {
-    const response = await fetch('http://172.17.0.2:5000/scan', {
+    const response = await fetch('https://email-guardian-backend-production.up.railway.app/scan', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: emailText }),
