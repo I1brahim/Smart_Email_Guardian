@@ -222,7 +222,7 @@ This project serves as a strong foundation for understanding machine learning in
 
 ---
 
-**Project Repository**: [https://github.com/I1brahim/]  
+**Project Repository**: (ibra)[https://github.com/I1brahim/]  
 **Live Demo**: [https://smart-email-guardian.vercel.app/]
 **Docker Container**: [https://hub.docker.com/r/ibrahim1011/email-guardian-backend]
 **API Documentation**: Available in `/docs` directory  
