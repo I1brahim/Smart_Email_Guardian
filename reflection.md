@@ -174,34 +174,12 @@ The Email Security Scanner is a full-stack web application that detects spam and
 - **Multiple Approaches**: Having backup plans for deployment and architecture decisions
 - **Community Resources**: Leveraging documentation and community knowledge accelerates development
 
-## 🚀 Future Enhancements and Roadmap
-
-### **Phase 1: Advanced ML Features (Next 3 months)**
-- Implement BERT embeddings for better text understanding
-- Add email attachment scanning capabilities
-- Develop real-time threat intelligence integration
-- Create model ensemble methods for improved accuracy
-
-### **Phase 2: Enterprise Features (Next 6 months)**
-- Build admin dashboard with analytics
-- Implement user account management
-- Add API rate limiting and usage analytics
-- Develop webhook integrations for email clients
-
-### **Phase 3: Scale and Optimization (Next 12 months)**
-- Migrate to microservices architecture
-- Implement horizontal scaling with load balancers
-- Add machine learning pipeline automation
-- Develop mobile application companion
-
 ## 🎓 Skills and Knowledge Gained
 
 ### **Technical Skills:**
 - **Machine Learning**: Model training, evaluation, and production deployment
 - **Full-Stack Development**: End-to-end application development
 - **Cloud Deployment**: Multi-platform deployment strategies
-- **API Security**: Authentication, authorization, and data protection
-- **DevOps**: CI/CD principles and production monitoring
 
 ### **Soft Skills:**
 - **Problem Solving**: Systematic approach to debugging and optimization
@@ -224,6 +202,5 @@ This project serves as a strong foundation for understanding machine learning in
 
 - **Project Repository**: [Smart_Email_Guardian](https://github.com/I1brahim/Smart_Email_Guardian)
 - **Live Demo**: [Live Website](https://smart-email-guardian.vercel.app)
-- **Docker Container**: [dockerized backend]("https://hub.docker.com/r/ibrahim1011/email-guardian-backend)
-- **API Documentation**: Available in `/docs` directory  
+- **Docker Container**: [dockerized backend]("https://hub.docker.com/r/ibrahim1011/email-guardian-backend)  
 - **Security Analysis**: Detailed in `security_notes.md`
