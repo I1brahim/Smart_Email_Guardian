@@ -309,40 +309,40 @@ export default function EmailScanner() {
     },
   };
 
-const handleScan = async () => {
-  setError('');
-  setResults(null);
+  const handleScan = async () => {
+    setError('');
+    setResults(null);
 
-  if (!emailText.trim()) {
-    setError('Please enter email text.');
-    return;
-  }
-
-  setIsScanning(true);
-
-  try {
-    const response = await fetch('https://email-guardian-backend-production.up.railway.app/scan', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: emailText }),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'Error scanning email');
+    if (!emailText.trim()) {
+      setError('Please enter email text.');
+      return;
     }
 
-    const data = await response.json();
-    console.log("Scan result:", data);
+    setIsScanning(true);
 
-    setResults(data);
-    setHistory(prev => [data, ...prev]); 
-  } catch (err) {
-    setError(err.message);
-  } finally {
-    setIsScanning(false);
-  }
-};
+    try {
+      const response = await fetch('https://email-guardian-backend-production.up.railway.app/scan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: emailText }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Error scanning email');
+      }
+
+      const data = await response.json();
+      console.log("Scan result:", data);
+
+      setResults(data);
+      setHistory(prev => [data, ...prev]); 
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsScanning(false);
+    }
+  };
 
   const getStatusColor = (label) => {
     const lower = label.toLowerCase();
@@ -350,9 +350,6 @@ const handleScan = async () => {
     if (lower === 'not spam' || lower === 'not phishing' || lower === 'legit') return styles.statusSuccess;
     return styles.statusWarning;
   };
-
-  const getRiskLevel = (p) => (p > 0.8 ? 'High Risk' : p > 0.5 ? 'Medium Risk' : 'Low Risk');
-  const getRiskColor = (p) => (p > 0.8 ? styles.riskHigh : p > 0.5 ? styles.riskMedium : styles.riskLow);
 
   const isEmailLegit = () => {
     const spamLegit = results?.spam?.label?.toLowerCase().includes('not') || results?.spam?.label?.toLowerCase() === 'legit';
@@ -475,6 +472,3 @@ const handleScan = async () => {
     </div>
   );
 }
-
-
-
