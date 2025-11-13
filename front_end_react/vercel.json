@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "headers": [
         {
           "key": "Content-Security-Policy",
@@ -17,7 +17,7 @@
         },
         {
           "key": "Clear-Site-Data",
-          "value": "cache"
+          "value": "\"cache\""
         }
       ]
     }
