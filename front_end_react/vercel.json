@@ -19,10 +19,6 @@
         {
           "key": "Clear-Site-Data",
           "value": "\"cache\""
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
         }
       ]
     }
