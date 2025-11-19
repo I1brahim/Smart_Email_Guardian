@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "headers": [
         {
           "key": "Content-Security-Policy",
@@ -15,6 +15,10 @@
         {
           "key": "Cross-Origin-Opener-Policy",
           "value": "same-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
         },
         {
           "key": "Clear-Site-Data",
