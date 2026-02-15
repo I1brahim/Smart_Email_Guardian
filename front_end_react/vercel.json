@@ -17,6 +17,10 @@
           "value": "same-origin"
         },
         {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
           "key": "Clear-Site-Data",
           "value": "\"cache\""
         },
