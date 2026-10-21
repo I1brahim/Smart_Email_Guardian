@@ -1,0 +1,7 @@
+.env
+.env.*
+history*
+*.log
+__pycache__/
+tests/
+.git/

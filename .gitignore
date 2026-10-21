@@ -29,3 +29,10 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Private runtime state and local tooling
+.venv/
+.pytest_cache/
+back_end_flask/history/
+back_end_flask/history.json
+back_end_flask/history*.json

@@ -1,23 +1,11 @@
-# Use official Python base image
-FROM python:3.10-slim
-
-# Set working directory
+FROM python:3.13-slim
 WORKDIR /app
-
-# Copy app files
-COPY app.py history.json history_manager.py requirements.txt ./
-
-# Copy models
-COPY models/ ./models/
-
-# Copy .env file for environment variables (including PORT)
-COPY .env .env
-
-# Install dependencies
+COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Expose default Flask port (can be overridden by .env)
+COPY app.py inference.py ./
+COPY models/ ./models/
+RUN useradd --system --uid 10001 guardian
+USER guardian
+ENV PORT=5000
 EXPOSE 5000
-
-# Run the app
-CMD ["python", "app.py"]
+CMD ["sh", "-c", "exec gunicorn --bind 0.0.0.0:${PORT:-5000} --workers 2 --threads 2 --timeout 60 app:app"]

@@ -1,19 +1,8 @@
-import joblib
+from back_end_flask.inference import ModelStore
 
-model = joblib.load("/home/ibrahim/Desktop/email_guardian/ai/phishing_model.pkl")
-vectorizer = joblib.load("/home/ibrahim/Desktop/email_guardian/ai/phishing_vectorizer.pkl")
 
-test_emails = [
-    "Congratulations! You won a free iPhone. Click here to claim now!",
-    "Hey, are we meeting for lunch today?",
-    "Urgent: Your password has been compromised. Reset it immediately!",
-]
-
-test_vec = vectorizer.transform(test_emails)
-
-predictions = model.predict(test_vec)
-proba = model.predict_proba(test_vec)[0]
-confidence = max(proba) * 100
-
-for email, label in zip(test_emails, predictions):
-    print(f"Email: {email}\nPredicted label: {label}\n (Confidence: {confidence:.2f}%)")
+def test_phishing_artifact_contract_from_any_directory(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    result = ModelStore().predict('Please review the meeting agenda.')['phishing']
+    assert result['label'] in {'phishing', 'legit'}
+    assert set(result['probabilities']) == {'phishing', 'legit'}

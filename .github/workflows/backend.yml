@@ -1,0 +1,40 @@
+name: Backend checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  tests:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pip check
+      - run: python -m pytest -q
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t guardian:test back_end_flask
+      - name: Verify container contract
+        run: |
+          docker run -d --name guardian -p 5000:5000 guardian:test
+          trap 'docker logs guardian; docker rm -f guardian' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail http://localhost:5000/ready; then break; fi
+            sleep 2
+          done
+          curl --fail http://localhost:5000/ready
+          test "$(docker exec guardian id -u)" != 0
+          docker exec guardian sh -c 'test ! -e .env && test ! -e history.json'
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:5000/history)" = 410
+          curl --fail -H 'Content-Type: application/json' -d '{"email":"Meeting tomorrow at noon."}' http://localhost:5000/scan

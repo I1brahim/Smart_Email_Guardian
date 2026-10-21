@@ -1,90 +1,93 @@
-from flask import Flask, request, jsonify
-import joblib
-import json
+"""Stateless HTTP API. Email text is used in memory only during inference."""
 import os
+from urllib.parse import urlsplit
+
+from flask import Flask, jsonify, request
 from flask_cors import CORS
-from markupsafe import escape
+from werkzeug.exceptions import HTTPException
 
-app = Flask(__name__)
-CORS(app)  
-
-spam_model = joblib.load("./models/spam_model.pkl")
-spam_vectorizer = joblib.load("./models/spam_vectorizer.pkl")
-
-phishing_model = joblib.load("./models/phishing_model.pkl")
-phishing_vectorizer = joblib.load("./models/phishing_vectorizer.pkl")
-
-history_file_path = "./history.json"
-
-if os.path.exists(history_file_path):
-    with open(history_file_path, "r") as f:
-        try:
-            history = json.load(f)
-        except json.JSONDecodeError:
-            history = []
+if __package__:
+    from .inference import ModelStore
 else:
-    history = []
+    from inference import ModelStore
 
-def get_description(label, email_text):
-    label = label.lower()
-    if label == "spam":
-        return "This email contains patterns commonly associated with spam, such as promotional language or suspicious links."
-    elif label == "phishing":
-        return "This email attempts to trick you into providing sensitive information or clicking on malicious links."
-    elif label in ["not spam", "not phishing", "legit"]:
-        return "No suspicious patterns detected. The email appears legitimate."
-    else:
-        return "Unable to determine the nature of this email."
 
-@app.route('/scan', methods=['POST'])
-def scan_email():
-    data = request.json
-    email_text = data.get("email", "")
-    
-    if not email_text:
-        return jsonify({"error": "No email text provided"}), 400
+def allowed_origins(value):
+    origins = [origin.strip() for origin in value.split(',') if origin.strip()]
+    for origin in origins:
+        parsed = urlsplit(origin)
+        if (parsed.scheme not in {'http', 'https'} or not parsed.hostname
+                or parsed.username or parsed.password or parsed.path
+                or parsed.query or parsed.fragment or '*' in origin):
+            raise ValueError('CORS_ORIGINS must contain explicit HTTP(S) origins')
+    return origins
 
-    sanitized_email = escape(email_text)
 
-    spam_vec = spam_vectorizer.transform([email_text])
-    phishing_vec = phishing_vectorizer.transform([email_text])
+def create_app(config=None, predictor=None):
+    app = Flask(__name__)
+    app.config.from_mapping(
+        MAX_CONTENT_LENGTH=256 * 1024, MAX_EMAIL_CHARS=50000,
+        CORS_ORIGINS=os.environ.get('CORS_ORIGINS', ''),
+        MODEL_DIR=os.environ.get('MODEL_DIR'),
+    )
+    app.config.update(config or {})
+    origins = allowed_origins(app.config['CORS_ORIGINS'])
+    if origins:
+        CORS(app, resources={r'/scan': {'origins': origins}},
+             methods=['POST', 'OPTIONS'], allow_headers=['Content-Type'],
+             supports_credentials=False, always_send=False)
+    store = predictor if predictor is not None else ModelStore(app.config['MODEL_DIR'])
+    app.extensions['predictor'] = store
 
-    spam_probs = spam_model.predict_proba(spam_vec)[0]
-    spam_labels = spam_model.classes_
+    @app.after_request
+    def protect_response(response):
+        response.headers['Cache-Control'] = 'no-store'
+        response.headers['X-Content-Type-Options'] = 'nosniff'
+        return response
 
-    phishing_probs = phishing_model.predict_proba(phishing_vec)[0]
-    phishing_labels = phishing_model.classes_
+    @app.errorhandler(HTTPException)
+    def http_error(error):
+        return jsonify(error=error.description), error.code
 
-    spam_pred = spam_model.predict(spam_vec)[0]
-    phishing_pred = phishing_model.predict(phishing_vec)[0]
+    @app.post('/scan')
+    def scan_email():
+        if not request.is_json:
+            return jsonify(error='Content-Type must be application/json'), 415
+        data = request.get_json()
+        if not isinstance(data, dict):
+            return jsonify(error='Expected a JSON object'), 400
+        email = data.get('email')
+        if not isinstance(email, str) or not email.strip():
+            return jsonify(error='email must be a non-empty string'), 400
+        if len(email) > app.config['MAX_EMAIL_CHARS']:
+            return jsonify(error='Email text exceeds the character limit'), 413
+        try:
+            return jsonify(store.predict(email))
+        except Exception:
+            # Library exceptions can include input text. Never log them.
+            app.logger.error('Scan inference unavailable')
+            return jsonify(error='Scanner temporarily unavailable'), 503
 
-    result = {
-        "spam": {
-            "label": spam_pred,
-            "probabilities": dict(zip(spam_labels, spam_probs)),
-            "description": get_description(spam_pred, email_text)
-        },
-        "phishing": {
-            "label": phishing_pred,
-            "probabilities": dict(zip(phishing_labels, phishing_probs)),
-            "description": get_description(phishing_pred, email_text)
-        },
-        "email": sanitized_email
-    }
+    @app.get('/history')
+    def history_retired():
+        return jsonify(error='Server scan history is disabled for privacy'), 410
 
-    history.append(result)
-    with open(history_file_path, "w") as f:
-        json.dump(history, f, indent=2)
+    @app.get('/health')
+    def health():
+        return jsonify(status='ok')
 
-    return jsonify(result)
+    @app.get('/ready')
+    def ready():
+        try:
+            store.load()
+        except Exception:
+            return jsonify(status='unavailable'), 503
+        return jsonify(status='ready')
 
-@app.route('/history', methods=['GET'])
-def get_history():
-    return jsonify(history)
+    return app
+
+
+app = create_app()
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
-
-
-
+    app.run(host='127.0.0.1', port=int(os.environ.get('PORT', 5000)))
