@@ -1,4 +1,4 @@
-# Smart Email Guardian
+# Email Guardian
 
 <!-- impeccable:product-schema 1 -->
 
@@ -29,3 +29,10 @@ Model predictions can be wrong and require a visible caveat.
 
 The grading rubric, school identity and exact presentation audience were not
 provided. Do not invent school branding, authorship, benchmarks or testimonials.
+
+## Confirmed visual direction
+
+The user requested the name Email Guardian, a new landing page, and the supplied
+cyberpunk/glitch system across the entire frontend. Dark mode is mandatory, with
+green, magenta and cyan neon, chamfered shapes, terminal typography and subtle
+CRT textures. Preserve accessible reading contrast and stoppable motion.

@@ -1,4 +1,4 @@
-# Smart Email Guardian
+# Email Guardian
 
 A stateless Flask scanner and a React interface for spam and phishing model
 predictions. The service does not store email contents or expose scan history.

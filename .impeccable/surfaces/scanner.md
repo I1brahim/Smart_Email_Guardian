@@ -2,27 +2,27 @@
 
 Mode: Operate
 
-Scope: Refine the existing cobalt/white scanner for a school demonstration;
-preserve its task, API, truthful copy and privacy behavior. No new visual-world
-selection or commercial landing page is required for this scoped improvement.
+Scope: Apply the user's cyberpunk system to the whole scanner while preserving
+its task, API, truthful scores, transient session state and privacy behavior.
 
 ## Direction contract
 
 THESIS: Make the existing email checker understandable in one classroom demo:
 choose a synthetic example or paste text, scan, inspect the two model outputs.
 
-OWN-WORLD: Preserve cobalt action color and cool white surfaces. Use a precise
-sans-serif hierarchy, thin neutral boundaries, quiet blue analysis space and
-one consistent outline icon family. Semantic green/red is reserved for results.
+OWN-WORLD: Void-black ground, green actions, cyan analysis, magenta accents,
+monospace body and geometric display faces. Chamfered technical frames replace
+rounded surfaces. Red risk states always retain text and icons.
 
 STORY: The visitor sees the input and its destination together. The empty state
 explains what a scan provides. Real model scores arrive with a clear caveat.
 
-FIRST VIEWPORT: A compact brand bar, left-aligned heading, examples above a large
+FIRST VIEWPORT: A shared brand/navigation rail, left-aligned heading, examples above a large
 email editor on the left and a live analysis area on the right. The primary scan
 action stays immediately below the editor. Mobile stacks editor before analysis.
 
-FORM: Scoped extension of the incumbent scanner; seed: none (not applicable).
+FORM: User-pinned cyberpunk/glitch world shared with the landing;
+seed:21b1e430e4ec0abd. Code-led build of the specified system.
 
 MOTION: The result replaces the awaiting/loading state with a brief opacity
 transition; the focused state change is model score disclosure. Button feedback
