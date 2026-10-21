@@ -19,5 +19,5 @@ dependencies = [
   "scipy==1.18.1",
   "threadpoolctl==3.7.0",
   "Werkzeug==3.1.9",
-  "colorama==0.4.6; platform_system == 'Windows'",
+  "colorama==0.4.6; platform_system == \"Windows\"",
 ]

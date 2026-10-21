@@ -16,7 +16,6 @@ TARGET = FRONTEND / "guardian_backend"
 def test_vercel_mirror_matches_canonical_runtime():
     for name in ("app.py", "inference.py"):
         assert (TARGET / name).read_bytes() == (SOURCE / name).read_bytes()
-    assert (FRONTEND / "requirements.txt").read_bytes() == (SOURCE / "requirements.txt").read_bytes()
     for name in (
         "spam_model.pkl", "spam_vectorizer.pkl",
         "phishing_model.pkl", "phishing_vectorizer.pkl",
@@ -46,8 +45,7 @@ def test_vercel_config_routes_same_origin_to_function():
     manifest = tomllib.loads((FRONTEND / "pyproject.toml").read_text(encoding="utf-8"))
     assert manifest["project"]["requires-python"] == ">=3.13,<3.14"
     requirements = {
-        line.strip() for line in (FRONTEND / "requirements.txt").read_text(encoding="utf-8").splitlines()
+        line.strip() for line in (SOURCE / "requirements.txt").read_text(encoding="utf-8").splitlines()
         if line.strip() and not line.startswith("#")
     }
-    assert requirements == {dependency.replace("'Windows'", '"Windows"')
-                            for dependency in manifest["project"]["dependencies"]}
+    assert requirements == set(manifest["project"]["dependencies"])
