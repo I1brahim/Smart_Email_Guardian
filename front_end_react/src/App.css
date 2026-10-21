@@ -40,7 +40,6 @@ nav a[aria-current] { color: var(--accent); }
 nav a[aria-current]::after { content: ''; position: absolute; height: 2px; background: var(--accent); box-shadow: var(--shadow-neon-sm); bottom: -1px; width: 100%; }
 nav a:hover, .secondary-link:hover, .site-footer a:hover { color: var(--accent); }
 .header-utilities { margin-left: auto; display: flex; align-items: center; gap: 20px; }
-.demo-label { font: 12px var(--font-label); letter-spacing: .16em; text-transform: uppercase; color: var(--muted-foreground); border: 1px solid var(--border); padding: 7px 10px; }
 .motion-toggle { display: grid; place-items: center; min-width: 44px; min-height: 44px; background: transparent; border: 1px solid var(--border); color: var(--muted-foreground); }
 .motion-toggle:hover, .motion-toggle[aria-pressed='true'] { color: var(--accent); border-color: var(--accent); }
 .nav-count { font: 12px var(--font-label); color: var(--accent); border: 1px solid var(--border); min-width: 22px; padding: 2px 4px; text-align: center; }
@@ -156,7 +155,6 @@ details[open] > summary .icon { transform: rotate(90deg); }
 .page-heading { display: flex; justify-content: space-between; gap: 24px; margin: 24px 0 32px; align-items: end; }
 .page-heading h1 { font-size: clamp(26px, 3.2vw, 38px); margin-bottom: 12px; }
 .page-heading p { margin: 0; font-size: 13px; }
-.project-note { max-width: 18ch; font: 12px/1.6 var(--font-label); color: var(--muted-foreground); text-align: right; }
 .workspace { display: grid; grid-template-columns: minmax(0, 1.13fr) minmax(0, .87fr); gap: 1px; }
 .composer { background: var(--card); padding: 32px; min-width: 0; }
 .composer-heading h2 { font-size: 20px; margin-bottom: 12px; }
@@ -264,7 +262,6 @@ kbd { font: inherit; border: 1px solid var(--border); padding: 3px 5px; }
 @media (max-width: 1100px) {
   .header-inner { gap: 40px; }
   nav { gap: 24px; }
-  .demo-label { display: none; }
   .hero { gap: 32px; padding-top: 64px; }
   .hero h1 { font-size: 57px; }
   .hero-actions { gap: 12px; }
@@ -307,7 +304,6 @@ kbd { font: inherit; border: 1px solid var(--border); padding: 3px 5px; }
   .footer-bottom { align-items: start; flex-direction: column; gap: 12px; }
   .page-heading { align-items: start; }
   .page-heading h1 { font-size: 29px; }
-  .project-note { display: none; }
   .workspace { grid-template-columns: 1fr; }
   .composer, .analysis { padding: 28px; }
   .analysis-waiting { padding-top: 32px; padding-bottom: 16px; }

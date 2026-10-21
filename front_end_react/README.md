@@ -23,7 +23,7 @@ labels are accepted; unknown labels and malformed probabilities show an error.
 Model scores are not calibrated safety guarantees. The interface warns users
 to verify unexpected links and requests even when both models predict legit.
 
-## School demo interactions
+## Scanner interactions
 
 - Try one of three clearly labeled synthetic samples, then scan it yourself.
   Choosing a sample never sends a request automatically.
@@ -34,8 +34,8 @@ to verify unexpected links and requests even when both models predict legit.
 - The input and analysis sit side by side on larger screens and stack on phones.
   Motion communicates waiting/results and respects reduced-motion preferences.
 
-This is a school demonstration. Synthetic examples do not guarantee a particular
-prediction and are not measurements of model accuracy.
+Synthetic examples do not guarantee a particular prediction and are not
+measurements of model accuracy.
 
 ## Landing and visual system
 

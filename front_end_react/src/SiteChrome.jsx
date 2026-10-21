@@ -8,10 +8,10 @@ export function Header({ scanner, count, paused, onToggleMotion }) {
       <a href="#scanner" aria-current={scanner ? 'page' : undefined}>Scanner{count > 0 && <span className="nav-count">{count}</span>}</a>
       <a href={scanner ? '#session-results' : '#how-it-works'}>{scanner ? 'This session' : 'How it works'}</a>
     </nav>
-    <div className="header-utilities"><span className="demo-label">School demo</span><button type="button" className="motion-toggle" onClick={onToggleMotion} aria-label={paused ? 'Resume visual effects' : 'Pause visual effects'} aria-pressed={paused} title={paused ? 'Resume visual effects' : 'Pause visual effects'}><Icon name={paused ? 'play' : 'pause'} /></button></div>
+    <div className="header-utilities"><button type="button" className="motion-toggle" onClick={onToggleMotion} aria-label={paused ? 'Resume visual effects' : 'Pause visual effects'} aria-pressed={paused} title={paused ? 'Resume visual effects' : 'Pause visual effects'}><Icon name={paused ? 'play' : 'pause'} /></button></div>
   </div></header>;
 }
 
 export function Footer() {
-  return <footer className="site-footer"><div className="footer-top"><a className="brand" href="#home"><Icon name="shield" /><span>Email Guardian</span></a><a href="#scanner">Open scanner<Icon name="arrow" /></a></div><div className="footer-bottom"><p>A school project exploring spam and phishing classification.</p><span>Stay curious. Verify before you click.</span></div><p className="footer-caveat">Model predictions can be wrong. This demo is a second opinion for email text.</p></footer>;
+  return <footer className="site-footer"><div className="footer-top"><a className="brand" href="#home"><Icon name="shield" /><span>Email Guardian</span></a><a href="#scanner">Open scanner<Icon name="arrow" /></a></div><div className="footer-bottom"><p>Explore spam and phishing patterns in email text.</p><span>Stay curious. Verify before you click.</span></div><p className="footer-caveat">Model predictions can be wrong. Use these results as a second opinion.</p></footer>;
 }

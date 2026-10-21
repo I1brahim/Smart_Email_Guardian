@@ -142,7 +142,7 @@ components:
 
 **Creative North Star: "Neon message intercept"**
 
-Email Guardian uses the user-pinned cyberpunk/glitch world: a void-black ground, neon signals, angular technical frames and terminal typography. Green leads actions, cyan carries analysis and magenta creates interruptions. The visual energy supports a school demonstration whose text input and two model outputs remain clear.
+Email Guardian uses the user-pinned cyberpunk/glitch world: a void-black ground, neon signals, angular technical frames and terminal typography. Green leads actions, cyan carries analysis and magenta creates interruptions. The visual energy supports a clear text input and two readable model outputs.
 
 The materials are made in code: a faint grid, SVG noise, CRT scanlines, outlined icons and chamfered frames. Occasional headline corruption, a terminal cursor and slow border emission provide atmosphere. The shared pause control stops animations across both surfaces, and the system reduced-motion preference removes animation and reduces transitions.
 
@@ -209,7 +209,7 @@ The landing alternates a split hero, slanted capability rail, staggered model ex
 
 | Inclusive maximum width | Implemented change |
 | --- | --- |
-| 1100px | Header gap (40px), nav gap (24px), school-demo badge hidden; hero gap (32px) and top padding (64px); composer/analysis padding (24px); keyboard hint hidden. |
+| 1100px | Header gap (40px), nav gap (24px); hero gap (32px) and top padding (64px); composer/analysis padding (24px); keyboard hint hidden. |
 | 800px | Header height (80px), gutters (24px), third nav link hidden; hero, perspectives, FAQ and scanner workspace stack. Preview follows the action, right-aligned up to (560px); decorative offset/caption hide. Capability rail becomes two columns. Composer/analysis padding (28px). Session rows stack and empty-analysis forced line break disappears. |
 | 480px | Header height (76px), header gutters (16px), content gutters (20px). Hero action fills width; model explainers become one column; process padding (32px 20px). Composer/analysis padding (24px 20px). Example/process trailing icons hide; scan actions wrap and primary action flexes to fill space. Footer groups stack. |
 | 360px | Header gutters (12px), header/nav gaps (8px). Session-count badge minimum width (18px), padding (1px 3px), type (10px), preserving the compact header after results exist. |

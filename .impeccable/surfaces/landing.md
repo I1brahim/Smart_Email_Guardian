@@ -1,14 +1,14 @@
 # Email Guardian landing
 
 Mode: Persuade. New landing surface, with a user-pinned cyberpunk/glitch system.
-Audience: classmates and a school-project reviewer exploring email classification.
+Audience: people exploring email classification and comparing model signals.
 Action: open the scanner, or load an editable synthetic message without sending it.
 Build path: code-led implementation of the user's explicit visual and layout brief.
 
 ## Direction contract
 
 THESIS: A neon message intercept invites a second look before clicking. The
-landing makes the actual text-classification demo understandable without invented
+landing makes the text-classification tool understandable without invented
 accuracy, live protection, customer counts, or testimonials.
 
 OWN-WORLD: Void black, green emission, magenta interruptions and cyan data lines.

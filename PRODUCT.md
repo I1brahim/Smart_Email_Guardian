@@ -8,9 +8,8 @@ web
 
 ## Product Purpose
 
-A school project demonstrating spam and phishing classification of pasted email
-text. The user confirmed this is a school project; enterprise workflows are out
-of scope. The interface should be interactive, responsive and visually engaging.
+An interactive tool for exploring spam and phishing classification of pasted
+email text. The interface should be responsive and visually engaging.
 
 ## Capabilities and Constraints
 
@@ -22,13 +21,13 @@ production deployments must not be changed without explicit approval.
 ## Evidence on Hand
 
 The working code has two checked-in classification models and a stateless scan
-endpoint. Sample messages are synthetic teaching material, not accuracy claims.
+endpoint. Sample messages are synthetic examples, not accuracy claims.
 Model predictions can be wrong and require a visible caveat.
 
 ## Open Decisions
 
-The grading rubric, school identity and exact presentation audience were not
-provided. Do not invent school branding, authorship, benchmarks or testimonials.
+The exact presentation audience was not provided. Do not invent authorship,
+benchmarks or testimonials.
 
 ## Confirmed visual direction
 

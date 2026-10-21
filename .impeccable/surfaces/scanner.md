@@ -7,7 +7,7 @@ its task, API, truthful scores, transient session state and privacy behavior.
 
 ## Direction contract
 
-THESIS: Make the existing email checker understandable in one classroom demo:
+THESIS: Make the email checker understandable in one clear flow:
 choose a synthetic example or paste text, scan, inspect the two model outputs.
 
 OWN-WORLD: Void-black ground, green actions, cyan analysis, magenta accents,

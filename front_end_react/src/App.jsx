@@ -116,7 +116,7 @@ export default function App() {
     <Header scanner={scanner} count={history.length} paused={paused} onToggleMotion={() => setPaused(value => !value)} />
     {!scanner ? <Landing onLoadExample={loadLandingExample} scanning={scanning} /> : <main className="scanner-page" id="scanner" tabIndex="-1">
       <a className="back-link" href="#home"><Icon name="arrow" />Back to overview</a>
-      <div className="page-heading"><div><h1>Email Security Scanner</h1><p>Check email text for spam and phishing patterns.</p></div><span className="project-note">A school project, built for learning</span></div>
+      <div className="page-heading"><div><h1>Email Security Scanner</h1><p>Check email text for spam and phishing patterns.</p></div></div>
       <div className="workspace cyber-panel">
         <form className="composer" onSubmit={handleSubmit} ref={formRef} onKeyDown={event => {
           if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') { event.preventDefault(); if (!scanning) formRef.current?.requestSubmit(); }
@@ -140,7 +140,7 @@ export default function App() {
           <ol className="session-list">{history.map(entry => <li key={entry.id}><button className="session-result" aria-label={`View result ${entry.id}`} aria-pressed={selectedResult === entry.id} disabled={scanning} onClick={() => viewResult(entry)}><span className="session-number"><Icon name="mail" />Scan {entry.id}</span><span className={entry.result.spam.label === 'legit' ? 'safe' : 'risk'}>Spam: {displayLabel(entry.result.spam.label)}</span><span className={entry.result.phishing.label === 'legit' ? 'safe' : 'risk'}>Phishing: {displayLabel(entry.result.phishing.label)}</span><Icon name="arrow" /></button></li>)}</ol>
         </> : <div className="session-empty"><Icon name="clock" /><div><h2>Your session starts with a scan.</h2><p>Recent results appear here. Nothing is saved after you leave.</p></div></div>}
       </section>
-      <details className="how-it-works" id="project-details"><summary>How this school project works<Icon name="chevron" /></summary><div><p>The same message is checked by two text-classification models: one for spam and one for phishing. Each returns a label and class scores.</p><p>Try the synthetic samples to compare predictions. These scores are model estimates. Always verify unexpected links and sensitive requests through a trusted channel.</p></div></details>
+      <details className="how-it-works" id="project-details"><summary>How the scanner works<Icon name="chevron" /></summary><div><p>The same message is checked by two text-classification models: one for spam and one for phishing. Each returns a label and class scores.</p><p>Try the synthetic samples to compare predictions. These scores are model estimates. Always verify unexpected links and sensitive requests through a trusted channel.</p></div></details>
     </main>}
     <Footer />
   </div>;
