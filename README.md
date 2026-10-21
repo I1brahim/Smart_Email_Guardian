@@ -48,5 +48,9 @@ Deploy the frontend and API changes together after owner review; the old UI
 expects echoed contents. Existing deployed data is not removed by these changes.
 See [privacy and API behavior](docs/privacy-api.md).
 
+For repeatable model training, metrics and fingerprinted artifacts, see
+[ML evaluation](docs/ml-evaluation.md). Generated weights require separate review
+before promotion; the checked-in runtime weights remain unchanged.
+
 The notebooks and `docs/README.md` are historical project records; this README
 and the executable tests describe the supported setup.

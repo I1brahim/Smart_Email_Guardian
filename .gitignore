@@ -36,3 +36,4 @@ Thumbs.db
 back_end_flask/history/
 back_end_flask/history.json
 back_end_flask/history*.json
+artifacts/

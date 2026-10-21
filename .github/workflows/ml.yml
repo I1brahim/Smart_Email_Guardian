@@ -1,0 +1,28 @@
+name: Reproducible ML evaluation
+on:
+  pull_request:
+    paths: ['ai/**', 'data/**', '*requirements*.txt', 'back_end_flask/requirements.txt', '.github/workflows/ml.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    env:
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - run: python -m pip install -r requirements-ml.txt
+      - run: python -m ai.evaluate --output artifacts/first
+      - run: python -m ai.evaluate --output artifacts/second
+      - name: Compare repeated runs
+        run: python -c "import json; from pathlib import Path; a=json.loads(Path('artifacts/first/report.json').read_text()); b=json.loads(Path('artifacts/second/report.json').read_text()); assert a == b, 'Evaluation was not reproducible'"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-report
+          path: artifacts/first/report.json
