@@ -39,3 +39,4 @@ back_end_flask/history*.json
 artifacts/
 .impeccable/review/
 .impeccable/*.local.json
+.vercel/
