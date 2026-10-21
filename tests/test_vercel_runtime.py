@@ -4,6 +4,7 @@ import importlib
 import json
 from pathlib import Path
 import sys
+import tomllib
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,3 +43,11 @@ def test_vercel_config_routes_same_origin_to_function():
     assert config["functions"]["api/scan.py"]["includeFiles"] == "guardian_backend/**"
     assert (FRONTEND / ".python-version").read_text(encoding="utf-8").strip() == "3.13"
     assert (ROOT / ".python-version").read_text(encoding="utf-8").strip() == "3.13"
+    manifest = tomllib.loads((FRONTEND / "pyproject.toml").read_text(encoding="utf-8"))
+    assert manifest["project"]["requires-python"] == ">=3.13,<3.14"
+    requirements = {
+        line.strip() for line in (FRONTEND / "requirements.txt").read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.startswith("#")
+    }
+    assert requirements == {dependency.replace("'Windows'", '"Windows"')
+                            for dependency in manifest["project"]["dependencies"]}

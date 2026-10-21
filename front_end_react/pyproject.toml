@@ -1,0 +1,23 @@
+[project]
+name = "email-guardian-vercel-api"
+version = "0.1.0"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+  "Flask==3.1.3",
+  "flask-cors==6.0.5",
+  "joblib==1.6.0",
+  "scikit-learn==1.7.1",
+  "gunicorn==26.2.0",
+  "blinker==1.9.0",
+  "click==8.5.0",
+  "cloudpickle==3.1.2",
+  "itsdangerous==2.2.0",
+  "Jinja2==3.1.6",
+  "MarkupSafe==3.0.4",
+  "numpy==2.5.4",
+  "packaging==26.3",
+  "scipy==1.18.1",
+  "threadpoolctl==3.7.0",
+  "Werkzeug==3.1.9",
+  "colorama==0.4.6; platform_system == 'Windows'",
+]
