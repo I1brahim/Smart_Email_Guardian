@@ -41,3 +41,4 @@ def test_vercel_config_routes_same_origin_to_function():
     assert {"source": "/scan", "destination": "/api/scan"} in config["rewrites"]
     assert config["functions"]["api/scan.py"]["includeFiles"] == "guardian_backend/**"
     assert (FRONTEND / ".python-version").read_text(encoding="utf-8").strip() == "3.13"
+    assert (ROOT / ".python-version").read_text(encoding="utf-8").strip() == "3.13"
