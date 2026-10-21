@@ -1,4 +1,4 @@
-# Scanner interface
+# Email Guardian frontend
 
 Use Node 24, then `npm ci`, `npm start`, `npm test` and `npm run build`.
 The development server is http://localhost:3000; `/scan` proxies to the local
@@ -31,3 +31,21 @@ to verify unexpected links and requests even when both models predict legit.
 
 This is a school demonstration. Synthetic examples do not guarantee a particular
 prediction and are not measurements of model accuracy.
+
+## Landing and visual system
+
+The default route is the project landing page; `/#scanner` opens the scanner.
+Hash navigation works on static hosting without extra rewrite rules and keeps
+the session in React memory. Landing samples fill the scanner without submitting.
+
+All surfaces share `src/tokens.css` and `src/App.css`. The user-requested dark
+cyberpunk system uses green actions, cyan analysis, magenta accents, chamfered
+frames and faint CRT/grid textures. Orbitron, JetBrains Mono and Share Tech Mono
+are pinned Fontsource dependencies bundled locally; no font-service request is
+needed. Text uses a brighter muted token than the brief's decorative gray to
+maintain reading contrast. Existing inline icons share a 1.5px stroke.
+
+Use the header's pause control to stop visual effects; the OS reduced-motion
+preference also disables animations. Keyboard focus, text selection, meters,
+scrollbars, loading and error states follow the shared palette. See the root
+`DESIGN.md` for the implemented design system.

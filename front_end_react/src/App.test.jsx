@@ -7,7 +7,7 @@ const result = (spam = 'legit', phishing = 'safe email') => ({
   phishing: { label: phishing, probabilities: { 'safe email': .6, 'phishing email': .4 } },
   email: 'SERVER_ECHO_MUST_BE_DISCARDED',
 });
-beforeEach(() => { global.fetch = vi.fn(); });
+beforeEach(() => { window.history.replaceState(null, '', '/#scanner'); global.fetch = vi.fn(); });
 afterEach(() => { vi.restoreAllMocks(); vi.useRealTimers(); });
 
 function submit() {
@@ -135,5 +135,58 @@ test('a network failure has a readable recovery and preserves input', async () =
   fetch.mockRejectedValue(new TypeError('Failed to fetch'));
   render(<App />); submit();
   expect(await screen.findByRole('alert')).toHaveTextContent('Could not connect to the scanner. Please try again.');
+  expect(screen.getByLabelText('Paste email content')).toHaveValue('PRIVATE_INPUT_MARKER');
+});
+
+test('landing introduces the project without sending a message', () => {
+  window.history.replaceState(null, '', '/');
+  render(<App />);
+  expect(screen.getByRole('heading', { level: 1 })).toHaveAccessibleName('Think before you click.');
+  expect(screen.getAllByRole('link', { name: 'Launch scanner' })).toHaveLength(2);
+  expect(screen.queryByLabelText('Paste email content')).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'Everyday email' }));
+  expect(screen.getByLabelText('Synthetic message preview')).toHaveTextContent('study group');
+  expect(fetch).not.toHaveBeenCalled();
+});
+
+test('landing sample opens an editable scanner without auto-submitting', async () => {
+  window.history.replaceState(null, '', '/');
+  render(<App />);
+  fireEvent.click(screen.getByRole('button', { name: 'Inspect this sample' }));
+  expect((await screen.findByLabelText('Paste email content')).value).toContain('account will be suspended');
+  expect(screen.getByLabelText('Paste email content')).toHaveFocus();
+  expect(fetch).not.toHaveBeenCalled();
+});
+
+test('navigation preserves in-memory results and never repeats a scan', async () => {
+  fetch.mockResolvedValue({ ok: true, json: async () => result() });
+  render(<App />); submit();
+  await screen.findByRole('heading', { name: 'Scan results' });
+  act(() => { window.location.hash = 'home'; window.dispatchEvent(new HashChangeEvent('hashchange')); });
+  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Think before');
+  act(() => { window.location.hash = 'scanner'; window.dispatchEvent(new HashChangeEvent('hashchange')); });
+  expect(screen.getByRole('button', { name: 'View result 1' })).toBeInTheDocument();
+  expect(fetch).toHaveBeenCalledTimes(1);
+});
+
+test('the effects control pauses and resumes across navigation', () => {
+  const { container } = render(<App />);
+  fireEvent.click(screen.getByRole('button', { name: 'Pause visual effects' }));
+  expect(container.firstChild).toHaveClass('effects-paused');
+  expect(screen.getByRole('button', { name: 'Resume visual effects' })).toHaveAttribute('aria-pressed', 'true');
+  fireEvent.click(screen.getByRole('button', { name: 'Resume visual effects' }));
+  expect(container.firstChild).not.toHaveClass('effects-paused');
+});
+
+test('a landing sample cannot replace text while a scan is running', async () => {
+  fetch.mockImplementation((_url, { signal }) => new Promise((_resolve, reject) => {
+    signal.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')));
+  }));
+  render(<App />); submit();
+  act(() => { window.location.hash = 'home'; window.dispatchEvent(new HashChangeEvent('hashchange')); });
+  expect(screen.getByRole('button', { name: 'Inspect this sample' })).toBeDisabled();
+  act(() => { window.location.hash = 'scanner'; window.dispatchEvent(new HashChangeEvent('hashchange')); });
+  fireEvent.click(screen.getByRole('button', { name: 'Cancel scan' }));
+  await screen.findByText('Scan cancelled. Your text is still here.');
   expect(screen.getByLabelText('Paste email content')).toHaveValue('PRIVATE_INPUT_MARKER');
 });

@@ -9,8 +9,11 @@ const paths = {
   clock: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,
   chevron: <path d="m9 5 7 7-7 7" />,
   sparkle: <><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z" /></>,
+  pause: <><path d="M8 5v14M16 5v14" /></>,
+  play: <path d="m8 4 12 8-12 8V4Z" />,
+  signal: <><path d="M3 12h4l3-8 4 16 3-8h4" /></>,
 };
 
 export default function Icon({ name, className = '' }) {
-  return <svg className={`icon ${className}`} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">{paths[name]}</svg>;
+  return <svg className={`icon ${className}`} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">{paths[name]}</svg>;
 }

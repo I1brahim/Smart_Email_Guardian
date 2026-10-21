@@ -1,246 +1,280 @@
 ---
-name: "Smart Email Guardian"
-description: "Cobalt actions and cool white surfaces for a school email-scanning demonstration."
+name: Email Guardian
+description: A dark neon terminal for exploring spam and phishing classification.
 colors:
-  blue: "#244dcc"
-  blue-dark: "#1939a5"
-  ink: "#202c47"
-  muted: "#596780"
-  line: "#dce2ef"
-  soft-blue: "#edf2ff"
-  white: "#fff"
-  safe: "#23633d"
-  risk: "#a52a2a"
-  page: "#f5f7fc"
-  analysis: "#eef3ff"
-  focus: "#456deb"
-  editor-border: "#bbc7dc"
-  analysis-copy: "#53648b"
-  analysis-heading: "#263e75"
-  score-track: "#d8e2f5"
-  score-fill: "#5072cb"
-  risk-fill: "#b84242"
-  safe-tint: "#deeee5"
-  risk-tint: "#f8e2df"
-  pressed: "#dce5ff"
-  button-disabled: "#6379b6"
+  background: '#0a0a0f'
+  foreground: '#e0e0e0'
+  card: '#12121a'
+  muted: '#1c1c2e'
+  muted-foreground: '#a1a4b4'
+  dim: '#6b7280'
+  accent: '#00ff88'
+  accent-secondary: '#ff00ff'
+  accent-tertiary: '#00d4ff'
+  border: '#2a2a3a'
+  input: '#12121a'
+  ring: '#00ff88'
+  destructive: '#ff3366'
 typography:
   display:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
-    fontSize: "2rem"
-    fontWeight: 710
-    lineHeight: 1.2
-    letterSpacing: "-.035em"
+    fontFamily: '''Orbitron'', ''Share Tech Mono'', monospace'
+    fontSize: clamp(46px, 5.4vw, 76px)
+    fontWeight: 800
+    lineHeight: 1.14
+    letterSpacing: .015em
   headline:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
-    fontSize: "1.625rem"
-    fontWeight: 680
+    fontFamily: '''Orbitron'', ''Share Tech Mono'', monospace'
+    fontSize: clamp(28px, 3.1vw, 42px)
+    fontWeight: 800
     lineHeight: 1.35
-    letterSpacing: "-.025em"
-  title:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 680
-    lineHeight: 1.35
-    letterSpacing: "-.025em"
+    letterSpacing: .025em
+  scanner-title:
+    fontFamily: '''Orbitron'', ''Share Tech Mono'', monospace'
+    fontSize: clamp(26px, 3.2vw, 38px)
+    fontWeight: 800
+    lineHeight: 1.2
+    letterSpacing: .025em
+  panel-title:
+    fontFamily: '''Orbitron'', ''Share Tech Mono'', monospace'
+    fontSize: 20px
+    fontWeight: 800
+    lineHeight: 1.2
+    letterSpacing: .025em
   body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
-    fontSize: ".9375rem"
+    fontFamily: '''JetBrains Mono'', ''Consolas'', monospace'
+    fontSize: 14px
     fontWeight: 400
-    lineHeight: 1.6
+    lineHeight: 1.75
+  editor:
+    fontFamily: '''JetBrains Mono'', ''Consolas'', monospace'
+    fontSize: 13px
+    fontWeight: 400
+    lineHeight: 1.9
   label:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
-    fontSize: ".8125rem"
-    fontWeight: 600
-    lineHeight: 1.6
-  metadata:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
-    fontSize: ".75rem"
+    fontFamily: '''Share Tech Mono'', monospace'
+    fontSize: 12px
     fontWeight: 400
-    lineHeight: 1.6
+  navigation:
+    fontFamily: '''Share Tech Mono'', monospace'
+    fontSize: 14px
+    fontWeight: 400
+    letterSpacing: .08em
+  button:
+    fontFamily: '''JetBrains Mono'', ''Consolas'', monospace'
+    fontSize: 13px
+    fontWeight: 600
+    letterSpacing: .07em
+  score:
+    fontFamily: '''JetBrains Mono'', ''Consolas'', monospace'
+    fontSize: 22px
+    fontWeight: 600
 rounded:
-  key: "4px"
-  chip: "7px"
-  control: "8px"
-  editor: "10px"
-  workspace: "18px"
+  square: 0px
 spacing:
-  xs: "8px"
-  sm: "12px"
-  md: "16px"
-  lg: "20px"
-  xl: "24px"
-  panel: "28px"
-  roomy: "32px"
+  space-1: 8px
+  space-2: 16px
+  space-3: 24px
+  space-4: 32px
+  space-6: 48px
+  space-8: 64px
+  space-12: 96px
 components:
   button-primary:
-    backgroundColor: "{colors.blue}"
-    textColor: "{colors.white}"
-    rounded: "{rounded.control}"
-    padding: "11px 18px"
-    height: "48px"
+    backgroundColor: '{colors.accent}'
+    textColor: '{colors.background}'
+    typography: '{typography.button}'
+    padding: 13px 22px
+    height: 52px
   button-primary-hover:
-    backgroundColor: "{colors.blue-dark}"
-  button-primary-disabled:
-    backgroundColor: "{colors.button-disabled}"
-  button-secondary:
-    textColor: "{colors.ink}"
-    rounded: "{rounded.chip}"
-    padding: "10px 14px"
-    height: "44px"
+    backgroundColor: '{colors.foreground}'
+  button-outline:
+    backgroundColor: transparent
+    textColor: '{colors.accent}'
+    padding: 10px 16px
+    height: 48px
+  button-cancel:
+    backgroundColor: transparent
+    textColor: '{colors.accent-secondary}'
+    padding: 10px 16px
+    height: 48px
   button-text:
-    textColor: "{colors.blue}"
-    typography: "{typography.label}"
-    padding: "6px 2px"
-    height: "40px"
+    backgroundColor: transparent
+    textColor: '{colors.accent}'
+    typography: '{typography.label}'
+    padding: 8px 0
+    height: 44px
   example-chip:
-    backgroundColor: "{colors.white}"
-    rounded: "{rounded.chip}"
-    padding: "7px 10px"
-    height: "40px"
+    backgroundColor: transparent
+    textColor: '{colors.muted-foreground}'
+    typography: '{typography.label}'
+    padding: 8px 10px
+    height: 44px
   example-chip-selected:
-    backgroundColor: "{colors.soft-blue}"
-    textColor: "{colors.blue-dark}"
+    backgroundColor: '#00ff880a'
+    textColor: '{colors.accent}'
   editor:
-    textColor: "{colors.ink}"
-    rounded: "{rounded.editor}"
-  workspace:
-    backgroundColor: "{colors.white}"
-    rounded: "{rounded.workspace}"
-  navigation-current:
-    textColor: "{colors.blue}"
-  session-row:
-    textColor: "{colors.ink}"
-    padding: "18px 12px"
-  session-row-selected:
-    backgroundColor: "{colors.soft-blue}"
+    backgroundColor: '{colors.background}'
+    textColor: '{colors.foreground}'
+    typography: '{typography.editor}'
+    rounded: '{rounded.square}'
+    padding: 20px 16px
+  panel:
+    backgroundColor: '{colors.card}'
+    padding: 32px
   analysis:
-    backgroundColor: "{colors.analysis}"
-    padding: "28px"
+    backgroundColor: '{colors.background}'
+    padding: 32px
+  navigation-current:
+    textColor: '{colors.accent}'
+    typography: '{typography.navigation}'
+  session-row:
+    backgroundColor: transparent
+    textColor: '{colors.foreground}'
+    padding: 16px
+    height: 72px
+  session-row-selected:
+    backgroundColor: '#00ff8808'
 ---
 
-# Design System: Smart Email Guardian
+# Design System: Email Guardian
 
 ## Overview
 
-**Creative North Star: "Cobalt actions and cool white surfaces"**
+**Creative North Star: "Neon message intercept"**
 
-This existing scanner uses cobalt actions, cool white surfaces and a quiet blue analysis region. Its interface is a compact working tool for a school demonstration: the input, primary action and model output remain easy to locate.
+Email Guardian uses the user-pinned cyberpunk/glitch world: a void-black ground, neon signals, angular technical frames and terminal typography. Green leads actions, cyan carries analysis and magenta creates interruptions. The visual energy supports a school demonstration whose text input and two model outputs remain clear.
 
-A system sans-serif stack gives headings, controls and numerical results one consistent voice. Thin boundaries and restrained shadows distinguish interactive areas; outline SVG icons support labels without replacing them.
+The materials are made in code: a faint grid, SVG noise, CRT scanlines, outlined icons and chamfered frames. Occasional headline corruption, a terminal cursor and slow border emission provide atmosphere. The shared pause control stops animations across both surfaces, and the system reduced-motion preference removes animation and reduces transitions.
 
 **Key Characteristics:**
-- Cobalt primary actions with cool neutral boundaries.
-- System sans-serif hierarchy and tabular numerical scores.
-- Editor and analysis share one responsive workspace.
-- Semantic result colors are accompanied by text and icons.
+
+- Mandatory dark surfaces with green, magenta and cyan signals.
+- Orbitron headings, JetBrains Mono reading text and Share Tech Mono labels.
+- Chamfered frames, thin borders and restrained neon emission.
+- Readable supporting text, visible focus and text-backed result semantics.
+- Code-native textures and stoppable motion; no shipping raster imagery.
 
 ## Colors
 
-The palette is a cool neutral foundation with a concentrated cobalt action color. Frontmatter values are normative; the names below describe their use.
+Frontmatter records the actual CSS custom-property palette. Dark mode is mandatory (`color-scheme: dark`); names below describe usage.
 
 ### Primary
 
-- **Cobalt** (`blue`) identifies the scan action, current navigation, links and the brand mark. **Deep cobalt** (`blue-dark`) strengthens hover and selected-control text.
-- **Soft cobalt wash** (`soft-blue`) distinguishes selected examples and session rows. **Pressed blue** (`pressed`) supplies immediate press feedback.
+**Signal green** (`accent`) identifies launch/scan actions, selected examples, current navigation and legitimate classifications. `ring` shares this value for focus.
+
+### Secondary
+
+**Interruption magenta** (`accent-secondary`) differentiates the phishing explanation, cancel action and glitch fragments. It is not the risk classification color.
+
+### Tertiary
+
+**Data cyan** (`accent-tertiary`) carries analysis labeling, ordinary score fills and technical signals.
 
 ### Neutral
 
-- **Ink** (`ink`) carries primary text; **muted slate** (`muted`) carries supporting text and the editor placeholder.
-- **White** (`white`) forms the header, workspace and example controls. **Cool page** (`page`) separates the workspace from the page; **analysis blue** (`analysis`) groups the model output.
-- **Fine boundary** (`line`) divides structure. **Editor boundary** (`editor-border`) makes the input easier to find. **Focus blue** (`focus`) marks keyboard focus.
-- **Analysis slate** (`analysis-copy`) and **analysis navy** (`analysis-heading`) preserve hierarchy on the blue panel. **Score track** and **score fill** distinguish the numerical meter from its track.
+**Void black** (`background`) is the page, editor and analysis ground. **Panel black** (`card`) separates the composer and terminal preview. `input` declares the same panel value, while the actual textarea uses `background`. **Recessed indigo** (`muted`) backs terminal bars, meter tracks and loading rows. **Technical border** (`border`) divides structure.
 
-### Result semantics
+**Reading gray** (`foreground`) carries principal copy; **supporting gray** (`muted-foreground`) carries paragraphs, placeholders and compact labels. **Decorative gray** (`dim`) remains declared but is not assigned to reading text. The supplied decorative gray (#6b7280) is intentionally replaced by the brighter supporting gray (#a1a4b4) for AA reading contrast on dark surfaces.
 
-- **Safe green** (`safe`) and **risk red** (`risk`) accompany explicit result labels and icons. Their tinted surfaces back the circular verdict icon. Risk meters use `risk-fill`.
-- **Disabled blue** (`button-disabled`) marks the unavailable submit control while a scan is in progress.
+**Risk pink-red** (`destructive`) carries risk classification, validation errors and risk meter fills, always accompanied by text or icons.
 
-**The Action Color Rule.** Use cobalt for primary actions, current navigation and focus-related emphasis; reserve green and red for result and error semantics.
+**The Readable Signal Rule.** Use muted-foreground for supporting reading text and placeholders. Keep dim for decorative use only; it is not the reading-text color.
 
-**The Readable State Rule.** Keep placeholder text at the muted text color and communicate errors, selection and results with more than color alone.
+**The Meaning Beyond Color Rule.** Pair risk, safe, selected and error states with text, icons or semantic control state. Green is also the action color, so color alone cannot explain a result.
 
 ## Typography
 
-**Display Font:** System sans-serif, using the frontmatter stack.
-**Body Font:** The same system sans-serif stack.
+**Display Font:** Orbitron, with Share Tech Mono and monospace fallbacks.
+**Body Font:** JetBrains Mono, with Consolas and monospace fallbacks.
+**Label Font:** Share Tech Mono, with monospace fallback.
 
-The type is direct and compact. Weight, size and tracking establish hierarchy without introducing a separate decorative face.
+Local Fontsource Latin assets bundle Orbitron (800), JetBrains Mono (400 and 600), and Share Tech Mono (400). The three packages are pinned at (5.3.0); their licenses ship in `front_end_react/public/font-licenses/`. No external font request is required. Heavy geometric headings contrast with steady monospace reading text.
 
 ### Hierarchy
 
-- **Display:** Page title; uses `display` and reduces to (1.625rem) below the mobile breakpoint.
-- **Headline:** Awaiting-analysis message; uses `headline` and reduces to (1.375rem) on mobile. Completed-result headings use (1.5rem).
-- **Title:** Composer and section headings use `title`; the session heading uses (1.125rem).
-- **Body:** General body and editor use `body`. The editor increases line height to (1.75) for pasted text; supporting copy commonly uses (.875rem).
-- **Label:** Field and example labels use `label`. Primary buttons use (.875rem), while metadata uses `metadata`. Model status text uses (.6875rem).
-- Counts, scores and class probabilities use tabular numerals. Supporting analysis copy is limited to (34ch) on desktop and (55ch) on mobile; explanatory content reaches (70ch).
+- **Display:** The hero uses `display`. At compact desktop it becomes (57px), at stacked tablet `clamp(46px, 8.3vw, 68px)`, and at narrow mobile `clamp(37px, 10.3vw, 49px)` with line height (1.22).
+- **Headline:** Intro/FAQ headings use `headline`, becoming (34px) at stacked tablet and (28px) on narrow mobile. Process uses `clamp(30px, 3.5vw, 44px)` and closing uses `clamp(32px, 4vw, 54px)`, both reducing to (28px) on narrow mobile.
+- **Scanner/panel title:** These use frontmatter roles. Scanner title reduces to (29px), then (25px); composer title reduces to (17px). Waiting/result headings are (23px)/(22px); waiting uses line height (1.5).
+- **Body/editor:** The page uses `body`, textarea `editor`. Supporting text commonly ranges (11–13px), with dense text at line height (1.8–1.9). Hero detail reaches (49ch), analysis copy (40ch), and expanded explanation (78ch).
+- **Labels/navigation:** Share Tech Mono metadata and utilities range (10–14px). Uppercase and tracking distinguish functional technical labels. These are not a reusable decorative preheading treatment.
+- **Scores:** The `score` role uses tabular numerals, as do character counts and class-score details.
 
-**The One Type Family Rule.** Use the system sans-serif stack throughout this operating interface, with weight and size establishing hierarchy.
+**The Three Voices Rule.** Use Orbitron for display and major headings, JetBrains Mono for reading and numerical scores, and Share Tech Mono for compact labels and navigation.
 
 ## Layout
 
-The header, main content and footer share a centered maximum width (1248px). Desktop horizontal gutters are (32px), with (36px) above the page heading. The main workspace pairs editor and analysis in proportional columns (1.15fr / .85fr); both permit shrinking with `minmax(0, ...)`.
+Header, landing, scanner and footer share a centered maximum content width (1280px) with desktop gutters (32px). The spacing scale is in frontmatter. Header minimum height is (96px). The hero uses (1.5fr / 1fr) columns, a (48px) gap and padding (88px 0 100px). The scanner pairs composer/analysis (1.13fr / .87fr) with a (1px) gap; grid columns use `minmax(0, ...)`.
 
-At (1050px) and below, workspace proportions become (1.08fr / .92fr), panel padding becomes (26px), and the school-project note and keyboard hint are hidden. At (760px) and below, gutters become (20px), the header becomes (72px) tall, and the workspace stacks editor before analysis. The analysis divider moves to the top, its corner treatment moves to the bottom, and the empty-state heading flows without the desktop forced line break. Session rows become stacked label groups with a trailing arrow.
+The landing alternates a split hero, slanted capability rail, staggered model explainers, numbered process and native FAQ disclosures. Those are landing compositions rather than mandatory layouts for every surface.
 
-At (400px) and below, main gutters become (12px), panels use (22px 18px), sample controls tighten and hide their icons, and the primary action expands to fill available space. The recurring spacing rhythm is captured in frontmatter; component exceptions remain specific to their purpose.
+| Inclusive maximum width | Implemented change |
+| --- | --- |
+| 1100px | Header gap (40px), nav gap (24px), school-demo badge hidden; hero gap (32px) and top padding (64px); composer/analysis padding (24px); keyboard hint hidden. |
+| 800px | Header height (80px), gutters (24px), third nav link hidden; hero, perspectives, FAQ and scanner workspace stack. Preview follows the action, right-aligned up to (560px); decorative offset/caption hide. Capability rail becomes two columns. Composer/analysis padding (28px). Session rows stack and empty-analysis forced line break disappears. |
+| 480px | Header height (76px), header gutters (16px), content gutters (20px). Hero action fills width; model explainers become one column; process padding (32px 20px). Composer/analysis padding (24px 20px). Example/process trailing icons hide; scan actions wrap and primary action flexes to fill space. Footer groups stack. |
+| 360px | Header gutters (12px), header/nav gaps (8px). Session-count badge minimum width (18px), padding (1px 3px), type (10px), preserving the compact header after results exist. |
+
+Keep mobile task order: input before analysis. Preview text wraps anywhere; textarea stays vertically resizable. The actual breakpoint set replaces the obsolete 1050/760/400 system.
 
 ## Elevation & Depth
 
-Thin borders and white-to-blue tonal layering supply most depth. The workspace has one diffuse ambient shadow (`0 12px 36px -24px #213e7b3d`). The focused editor uses a small glow (`0 3px 12px -6px #244dcc55`); the hovered primary button gains a restrained shadow (`0 5px 12px -6px #244dcc80`). These are supporting cues rather than heavy raised surfaces.
+Dark tonal layers, thin technical borders and local emission create depth. There is no general raised-card shadow. The hero terminal uses `drop-shadow(0 12px 30px #00000090)` and a rotated outline behind it. The faint grid repeats at (48px); SVG fractal noise has opacity (.035); page CRT scanlines have opacity (.45). All remain pointer-transparent.
+
+The sidecar records the exact standard/small/large green, magenta and cyan glow tokens. Standard green supports outline-action hover and scan line; small green supports focus, editor focus and current navigation; magenta supports cancel hover; cyan supports the terminal edge. The large green token is declared but not currently applied. Primary hover uses a small green drop shadow; empty/loading analysis icons have a subtle cyan halo.
+
+**The Emission, Not Lift Rule.** Use dark tonal layers and thin boundaries for structure; neon glow reinforces a signal or interaction rather than turning every surface into a floating card.
 
 ## Shapes
 
-The workspace is softly rounded; the analysis region follows the shared exterior corners and leaves the internal divider straight. Fields are slightly tighter than the workspace, while buttons and sample controls are tighter again. Borders are generally (1px). Circular shapes are limited to verdict and empty-state icon badges. Small keyboard keys use the `key` radius.
+Surfaces are square or angular, with no rounded-card system. The shared eight-point chamfer polygon defaults to a (12px) cut; primary actions use (7px), terminal/workspace frames (14px), and process region (20px). The polygon cuts all four corners: `polygon(0 var(--cut), var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)))`. Frames use an outer boundary layer and (1px) inset content. Straight (1px) rules organize fields/rows; primary borders are (2px). Primary focus removes clipping to reveal its outline.
 
-All icons are authored inline SVG, with a shared (24px) viewBox, rounded caps and joins, and (1.7) stroke width by default. Actual icon size follows context, commonly (14–20px); the large empty and loading mail icons use a lighter stroke. No raster imagery is part of this interface.
+Authored inline SVG icons use a (24px) viewBox, (1.5) stroke, rounded caps/joins and contextual sizes commonly (14–20px). Rounded icon paths do not create rounded surface tokens. `public/guardian.svg` is an authored code-native brand mark. No shipping raster imagery requires image provenance.
 
 ## Components
 
 ### Buttons
 
-Primary scan buttons use cobalt fill, white text, a (48px) minimum height and the frontmatter padding. Hover darkens the fill and shifts the arrow by (3px); press darkens further and removes the shadow. During scanning, the disabled button displays “Scanning…” and a separate outlined cancel button appears. Secondary cancel controls have a (44px) minimum height. Text actions use cobalt text, a transparent underline at rest and a visible underline on hover.
+Green-filled primary actions are chamfered with dark text, uppercase JetBrains Mono and minimum height (52px). Hover changes fill/border to foreground gray and adds green emission; active shifts down (1px). The terminal outline action has minimum height (48px) and becomes green-filled with emission on hover. Cancel uses magenta outline/fill; green text actions underline on hover. Disabled controls use opacity (.5) and a not-allowed cursor.
 
-Button color transitions take (160ms); arrow feedback takes (180ms) with the shared ease curve. Keyboard focus uses a (3px) outline with (4px) offset. Disabled controls use their implemented muted treatment and a not-allowed cursor.
+Control feedback takes (150ms); transforms use `cubic-bezier(.16, 1, .3, 1)`. Shared keyboard focus uses a (2px) green outline, offset (5px) and small glow. Touch targets generally reach (44px).
 
 ### Chips
 
-Synthetic example controls are real buttons with visible labels and outline icons, not result labels. Their selected state uses a pale blue fill, stronger blue border and `aria-pressed`. Hover changes boundary, text and background; press uses the pressed fill. They wrap with (8px) gaps, reduced to (6px) at the smallest breakpoint. Choosing a sample fills and focuses the editor; typing clears selection. They are disabled while scanning.
+Synthetic sample controls are square outlined buttons, minimum height (44px), with `aria-pressed`. Hover/selection use green border/text and faint wash. They wrap with (8px) gaps; mobile hides icons but keeps names. Landing choices use text with selected underline. Selection loads editable text; scanning is a separate action.
 
 ### Cards / Containers
 
-The shared workspace contains one white editor region and one pale blue analysis region. Desktop composer padding is (32px), analysis padding is (28px). The component has a single exterior border and ambient shadow. Avoid turning each model row into an additional raised card: rows use quiet top dividers and vertical spacing (18px).
+Terminal and scanner share chamfered frames. The composer uses panel black; analysis uses page black with a (1px) division. Desktop padding is (32px), with responsive overrides in Layout. Model results stay flat divided rows. Terminal framing uses a recessed header, square status dots and bordered message preview.
 
 ### Inputs / Fields
 
-The labeled editor has a (1px) boundary and `editor` radius. The resizable textarea has a (220px) minimum height and padding (8px 16px 16px). Its placeholder uses the muted text token. Focus within changes the outer boundary and adds the small glow; the textarea also keeps a (2px) inset keyboard outline. An invalid submission adds a red boundary and an explicit error message. The character count sits below the text and uses tabular numerals. Clear text returns focus to the field.
+The square editor uses page-black fill, (1px) border and readable placeholder. Focus changes the outer boundary to green with small emission; textarea also retains a (1px) inset outline at offset (-4px). Minimum height is (220px), caret green, padding as in frontmatter. Toolbar and count row use straight dividers. Errors add risk boundary and alert text/icon. Clear text returns focus.
 
 ### Navigation
 
-The white brand bar uses muted navigation text with cobalt hover and current states. The current Scanner link has a cobalt underline (2px); This session gains a small pale blue count badge after scans. On mobile, the main links remain visible and the auxiliary How it works header link hides. A focus-revealed skip link reaches the scanner.
+The rail places a green shield beside the two-line Email Guardian name. Share Tech Mono links use muted default and green hover/current states; current route adds a glowing (2px) underline. Counts appear only after results exist. At stacked width, the third link hides while Overview, Scanner and the (44px) motion toggle remain. The focus-revealed skip link reaches main content.
 
-### Analysis and scores
+### Analysis, scores and session rows
 
-The analysis panel has awaiting, loading and completed states. Loading shows a moving scan line and pulsing rows with descriptive text, without fabricated percentage progress. Completed output arrives through an opacity transition (220ms), reports the two model labels and exposes real numerical scores through native meters. Each model has a native disclosure for both class scores. Result labels combine text, color and an outline icon; the model caveat stays visible.
+Waiting, loading and results share the same analysis area. Loading shows a green sweep over outlined mail and thin pulsing rows with descriptive text and cancellation. Results use a square status icon, explicit classifications, real scores and native flat meters. Normal fill is cyan, risk fill destructive. Native disclosures reveal both class scores; the caveat stays visible. Session buttons use flat separators and faint green hover/selection. Selecting one focuses the result heading.
 
-The shared ease curve is `cubic-bezier(.16, 1, .3, 1)`. Reduced motion stops scan sweeping and row pulsing, removes spatial arrow and disclosure transitions, and shortens result arrival to (80ms).
-
-### Session rows and disclosures
-
-Session result buttons are flat rows with separators, a scan number, two model labels and an arrow. Hover and selected states use pale blue; press uses the pressed fill. Selecting a row restores its result and focuses the analysis heading. Clear results removes the current-tab list. Native disclosures expose model score detail and the project explanation; the latter rotates its chevron on open.
+Result arrival is opacity-only (250ms). Headline glitch repeats (9s), cursor (1.4s), border emission (8s), scan sweep (2.5s), loading pulse (2s), second row delayed (.4s). Shared pause stops every animation, including pseudo-elements. `prefers-reduced-motion: reduce` disables animations, uses auto scrolling and reduces transition duration to (.01ms). Cursor/glitch decoration stays hidden from assistive text duplication.
 
 ## Do's and Don'ts
 
 ### Do:
-- Do use the cobalt action palette and cool white or pale blue surfaces.
-- Do retain visible keyboard focus, descriptive labels and text alongside result colors.
-- Do stack the editor before analysis on narrow screens and allow labels to wrap.
-- Do use the authored outline SVG icon family consistently.
-- Do retain the model caveat and clearly label synthetic examples.
+
+- Do retain the mandatory dark palette and the three locally bundled font families.
+- Do use muted-foreground for supporting copy and keep reading contrast independent of texture.
+- Do preserve the shared motion pause control and reduced-motion treatment.
+- Do retain keyboard focus, text-backed result states and native score disclosures.
+- Do stack the editor before analysis and keep navigation usable at the 360px breakpoint.
+- Do label synthetic examples and keep the model caveat visible.
 
 ### Don't:
-- Don't use semantic green or red as an unrelated decorative accent.
-- Don't present loading as a numerical percentage or imply model certainty.
-- Don't introduce unsupported school branding, benchmarks or testimonials.
-- Don't make mobile heading line breaks depend on the desktop composition.
+
+- Don't revive the obsolete cobalt/white visual system.
+- Don't use dim as paragraph, placeholder or small-label reading text.
+- Don't add light mode, rounded card styling or stock raster artwork to this pinned world.
+- Don't imply live inbox protection, guaranteed safety, benchmark accuracy or numerical loading progress.
+- Don't turn descriptive labels into decorative preheading kickers.

@@ -1,96 +1,26 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-21T01:34:27.751522+00:00",
-  "title": "Design System: Smart Email Guardian",
+  "generatedAt": "2026-10-21T02:20:01.362397+00:00",
+  "title": "Design System: Email Guardian",
   "extensions": {
     "colorMeta": {
-      "blue": {
-        "role": "primary",
-        "displayName": "Blue",
-        "tonalRamp": [
-          "oklch(15% 0.2017 265.32)",
-          "oklch(26% 0.2017 265.32)",
-          "oklch(38% 0.2017 265.32)",
-          "oklch(49% 0.2017 265.32)",
-          "oklch(61% 0.2017 265.32)",
-          "oklch(72% 0.2017 265.32)",
-          "oklch(84% 0.2017 265.32)",
-          "oklch(95% 0.2017 265.32)"
-        ]
-      },
-      "blue-dark": {
-        "role": "primary",
-        "displayName": "Blue Dark",
-        "tonalRamp": [
-          "oklch(15% 0.1772 265.59)",
-          "oklch(26% 0.1772 265.59)",
-          "oklch(38% 0.1772 265.59)",
-          "oklch(49% 0.1772 265.59)",
-          "oklch(61% 0.1772 265.59)",
-          "oklch(72% 0.1772 265.59)",
-          "oklch(84% 0.1772 265.59)",
-          "oklch(95% 0.1772 265.59)"
-        ]
-      },
-      "ink": {
+      "background": {
         "role": "neutral",
-        "displayName": "Ink",
+        "displayName": "Background",
         "tonalRamp": [
-          "oklch(15% 0.0521 265.15)",
-          "oklch(26% 0.0521 265.15)",
-          "oklch(38% 0.0521 265.15)",
-          "oklch(49% 0.0521 265.15)",
-          "oklch(61% 0.0521 265.15)",
-          "oklch(72% 0.0521 265.15)",
-          "oklch(84% 0.0521 265.15)",
-          "oklch(95% 0.0521 265.15)"
+          "oklch(15% 0.0107 285.01)",
+          "oklch(26% 0.0107 285.01)",
+          "oklch(38% 0.0107 285.01)",
+          "oklch(49% 0.0107 285.01)",
+          "oklch(61% 0.0107 285.01)",
+          "oklch(72% 0.0107 285.01)",
+          "oklch(84% 0.0107 285.01)",
+          "oklch(95% 0.0107 285.01)"
         ]
       },
-      "muted": {
+      "foreground": {
         "role": "neutral",
-        "displayName": "Muted",
-        "tonalRamp": [
-          "oklch(15% 0.0434 261.95)",
-          "oklch(26% 0.0434 261.95)",
-          "oklch(38% 0.0434 261.95)",
-          "oklch(49% 0.0434 261.95)",
-          "oklch(61% 0.0434 261.95)",
-          "oklch(72% 0.0434 261.95)",
-          "oklch(84% 0.0434 261.95)",
-          "oklch(95% 0.0434 261.95)"
-        ]
-      },
-      "line": {
-        "role": "neutral",
-        "displayName": "Line",
-        "tonalRamp": [
-          "oklch(15% 0.0188 265.98)",
-          "oklch(26% 0.0188 265.98)",
-          "oklch(38% 0.0188 265.98)",
-          "oklch(49% 0.0188 265.98)",
-          "oklch(61% 0.0188 265.98)",
-          "oklch(72% 0.0188 265.98)",
-          "oklch(84% 0.0188 265.98)",
-          "oklch(95% 0.0188 265.98)"
-        ]
-      },
-      "soft-blue": {
-        "role": "primary",
-        "displayName": "Soft Blue",
-        "tonalRamp": [
-          "oklch(15% 0.0182 269.09)",
-          "oklch(26% 0.0182 269.09)",
-          "oklch(38% 0.0182 269.09)",
-          "oklch(49% 0.0182 269.09)",
-          "oklch(61% 0.0182 269.09)",
-          "oklch(72% 0.0182 269.09)",
-          "oklch(84% 0.0182 269.09)",
-          "oklch(95% 0.0182 269.09)"
-        ]
-      },
-      "white": {
-        "role": "neutral",
-        "displayName": "White",
+        "displayName": "Foreground",
         "tonalRamp": [
           "oklch(15% 0.0000 89.88)",
           "oklch(26% 0.0000 89.88)",
@@ -102,411 +32,436 @@
           "oklch(95% 0.0000 89.88)"
         ]
       },
-      "safe": {
-        "role": "semantic",
-        "displayName": "Safe",
-        "tonalRamp": [
-          "oklch(15% 0.0905 154.17)",
-          "oklch(26% 0.0905 154.17)",
-          "oklch(38% 0.0905 154.17)",
-          "oklch(49% 0.0905 154.17)",
-          "oklch(61% 0.0905 154.17)",
-          "oklch(72% 0.0905 154.17)",
-          "oklch(84% 0.0905 154.17)",
-          "oklch(95% 0.0905 154.17)"
-        ]
-      },
-      "risk": {
-        "role": "semantic",
-        "displayName": "Risk",
-        "tonalRamp": [
-          "oklch(15% 0.1597 25.56)",
-          "oklch(26% 0.1597 25.56)",
-          "oklch(38% 0.1597 25.56)",
-          "oklch(49% 0.1597 25.56)",
-          "oklch(61% 0.1597 25.56)",
-          "oklch(72% 0.1597 25.56)",
-          "oklch(84% 0.1597 25.56)",
-          "oklch(95% 0.1597 25.56)"
-        ]
-      },
-      "page": {
+      "card": {
         "role": "neutral",
-        "displayName": "Page",
+        "displayName": "Card",
         "tonalRamp": [
-          "oklch(15% 0.0070 268.55)",
-          "oklch(26% 0.0070 268.55)",
-          "oklch(38% 0.0070 268.55)",
-          "oklch(49% 0.0070 268.55)",
-          "oklch(61% 0.0070 268.55)",
-          "oklch(72% 0.0070 268.55)",
-          "oklch(84% 0.0070 268.55)",
-          "oklch(95% 0.0070 268.55)"
+          "oklch(15% 0.0162 284.72)",
+          "oklch(26% 0.0162 284.72)",
+          "oklch(38% 0.0162 284.72)",
+          "oklch(49% 0.0162 284.72)",
+          "oklch(61% 0.0162 284.72)",
+          "oklch(72% 0.0162 284.72)",
+          "oklch(84% 0.0162 284.72)",
+          "oklch(95% 0.0162 284.72)"
         ]
       },
-      "analysis": {
+      "muted": {
         "role": "neutral",
-        "displayName": "Analysis",
+        "displayName": "Muted",
         "tonalRamp": [
-          "oklch(15% 0.0169 267.79)",
-          "oklch(26% 0.0169 267.79)",
-          "oklch(38% 0.0169 267.79)",
-          "oklch(49% 0.0169 267.79)",
-          "oklch(61% 0.0169 267.79)",
-          "oklch(72% 0.0169 267.79)",
-          "oklch(84% 0.0169 267.79)",
-          "oklch(95% 0.0169 267.79)"
+          "oklch(15% 0.0344 283.45)",
+          "oklch(26% 0.0344 283.45)",
+          "oklch(38% 0.0344 283.45)",
+          "oklch(49% 0.0344 283.45)",
+          "oklch(61% 0.0344 283.45)",
+          "oklch(72% 0.0344 283.45)",
+          "oklch(84% 0.0344 283.45)",
+          "oklch(95% 0.0344 283.45)"
         ]
       },
-      "focus": {
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "Muted Foreground",
+        "tonalRamp": [
+          "oklch(15% 0.0233 277.34)",
+          "oklch(26% 0.0233 277.34)",
+          "oklch(38% 0.0233 277.34)",
+          "oklch(49% 0.0233 277.34)",
+          "oklch(61% 0.0233 277.34)",
+          "oklch(72% 0.0233 277.34)",
+          "oklch(84% 0.0233 277.34)",
+          "oklch(95% 0.0233 277.34)"
+        ]
+      },
+      "dim": {
+        "role": "neutral",
+        "displayName": "Dim",
+        "tonalRamp": [
+          "oklch(15% 0.0234 264.36)",
+          "oklch(26% 0.0234 264.36)",
+          "oklch(38% 0.0234 264.36)",
+          "oklch(49% 0.0234 264.36)",
+          "oklch(61% 0.0234 264.36)",
+          "oklch(72% 0.0234 264.36)",
+          "oklch(84% 0.0234 264.36)",
+          "oklch(95% 0.0234 264.36)"
+        ]
+      },
+      "accent": {
         "role": "primary",
-        "displayName": "Focus",
+        "displayName": "Signal green",
         "tonalRamp": [
-          "oklch(15% 0.1955 266.81)",
-          "oklch(26% 0.1955 266.81)",
-          "oklch(38% 0.1955 266.81)",
-          "oklch(49% 0.1955 266.81)",
-          "oklch(61% 0.1955 266.81)",
-          "oklch(72% 0.1955 266.81)",
-          "oklch(84% 0.1955 266.81)",
-          "oklch(95% 0.1955 266.81)"
+          "oklch(15% 0.2278 152.55)",
+          "oklch(26% 0.2278 152.55)",
+          "oklch(38% 0.2278 152.55)",
+          "oklch(49% 0.2278 152.55)",
+          "oklch(61% 0.2278 152.55)",
+          "oklch(72% 0.2278 152.55)",
+          "oklch(84% 0.2278 152.55)",
+          "oklch(95% 0.2278 152.55)"
         ]
       },
-      "editor-border": {
+      "accent-secondary": {
+        "role": "secondary",
+        "displayName": "Interruption magenta",
+        "tonalRamp": [
+          "oklch(15% 0.3225 328.36)",
+          "oklch(26% 0.3225 328.36)",
+          "oklch(38% 0.3225 328.36)",
+          "oklch(49% 0.3225 328.36)",
+          "oklch(61% 0.3225 328.36)",
+          "oklch(72% 0.3225 328.36)",
+          "oklch(84% 0.3225 328.36)",
+          "oklch(95% 0.3225 328.36)"
+        ]
+      },
+      "accent-tertiary": {
+        "role": "tertiary",
+        "displayName": "Data cyan",
+        "tonalRamp": [
+          "oklch(15% 0.1459 219.52)",
+          "oklch(26% 0.1459 219.52)",
+          "oklch(38% 0.1459 219.52)",
+          "oklch(49% 0.1459 219.52)",
+          "oklch(61% 0.1459 219.52)",
+          "oklch(72% 0.1459 219.52)",
+          "oklch(84% 0.1459 219.52)",
+          "oklch(95% 0.1459 219.52)"
+        ]
+      },
+      "border": {
         "role": "neutral",
-        "displayName": "Editor Border",
+        "displayName": "Border",
         "tonalRamp": [
-          "oklch(15% 0.0323 261.73)",
-          "oklch(26% 0.0323 261.73)",
-          "oklch(38% 0.0323 261.73)",
-          "oklch(49% 0.0323 261.73)",
-          "oklch(61% 0.0323 261.73)",
-          "oklch(72% 0.0323 261.73)",
-          "oklch(84% 0.0323 261.73)",
-          "oklch(95% 0.0323 261.73)"
+          "oklch(15% 0.0290 284.46)",
+          "oklch(26% 0.0290 284.46)",
+          "oklch(38% 0.0290 284.46)",
+          "oklch(49% 0.0290 284.46)",
+          "oklch(61% 0.0290 284.46)",
+          "oklch(72% 0.0290 284.46)",
+          "oklch(84% 0.0290 284.46)",
+          "oklch(95% 0.0290 284.46)"
         ]
       },
-      "analysis-copy": {
+      "input": {
         "role": "neutral",
-        "displayName": "Analysis Copy",
+        "displayName": "Input",
         "tonalRamp": [
-          "oklch(15% 0.0659 265.97)",
-          "oklch(26% 0.0659 265.97)",
-          "oklch(38% 0.0659 265.97)",
-          "oklch(49% 0.0659 265.97)",
-          "oklch(61% 0.0659 265.97)",
-          "oklch(72% 0.0659 265.97)",
-          "oklch(84% 0.0659 265.97)",
-          "oklch(95% 0.0659 265.97)"
+          "oklch(15% 0.0162 284.72)",
+          "oklch(26% 0.0162 284.72)",
+          "oklch(38% 0.0162 284.72)",
+          "oklch(49% 0.0162 284.72)",
+          "oklch(61% 0.0162 284.72)",
+          "oklch(72% 0.0162 284.72)",
+          "oklch(84% 0.0162 284.72)",
+          "oklch(95% 0.0162 284.72)"
         ]
       },
-      "analysis-heading": {
-        "role": "neutral",
-        "displayName": "Analysis Heading",
-        "tonalRamp": [
-          "oklch(15% 0.0988 264.42)",
-          "oklch(26% 0.0988 264.42)",
-          "oklch(38% 0.0988 264.42)",
-          "oklch(49% 0.0988 264.42)",
-          "oklch(61% 0.0988 264.42)",
-          "oklch(72% 0.0988 264.42)",
-          "oklch(84% 0.0988 264.42)",
-          "oklch(95% 0.0988 264.42)"
-        ]
-      },
-      "score-track": {
-        "role": "neutral",
-        "displayName": "Score Track",
-        "tonalRamp": [
-          "oklch(15% 0.0281 263.43)",
-          "oklch(26% 0.0281 263.43)",
-          "oklch(38% 0.0281 263.43)",
-          "oklch(49% 0.0281 263.43)",
-          "oklch(61% 0.0281 263.43)",
-          "oklch(72% 0.0281 263.43)",
-          "oklch(84% 0.0281 263.43)",
-          "oklch(95% 0.0281 263.43)"
-        ]
-      },
-      "score-fill": {
+      "ring": {
         "role": "primary",
-        "displayName": "Score Fill",
+        "displayName": "Focus green",
         "tonalRamp": [
-          "oklch(15% 0.1427 266.25)",
-          "oklch(26% 0.1427 266.25)",
-          "oklch(38% 0.1427 266.25)",
-          "oklch(49% 0.1427 266.25)",
-          "oklch(61% 0.1427 266.25)",
-          "oklch(72% 0.1427 266.25)",
-          "oklch(84% 0.1427 266.25)",
-          "oklch(95% 0.1427 266.25)"
+          "oklch(15% 0.2278 152.55)",
+          "oklch(26% 0.2278 152.55)",
+          "oklch(38% 0.2278 152.55)",
+          "oklch(49% 0.2278 152.55)",
+          "oklch(61% 0.2278 152.55)",
+          "oklch(72% 0.2278 152.55)",
+          "oklch(84% 0.2278 152.55)",
+          "oklch(95% 0.2278 152.55)"
         ]
       },
-      "risk-fill": {
+      "destructive": {
         "role": "semantic",
-        "displayName": "Risk Fill",
+        "displayName": "Risk pink-red",
         "tonalRamp": [
-          "oklch(15% 0.1531 23.71)",
-          "oklch(26% 0.1531 23.71)",
-          "oklch(38% 0.1531 23.71)",
-          "oklch(49% 0.1531 23.71)",
-          "oklch(61% 0.1531 23.71)",
-          "oklch(72% 0.1531 23.71)",
-          "oklch(84% 0.1531 23.71)",
-          "oklch(95% 0.1531 23.71)"
-        ]
-      },
-      "safe-tint": {
-        "role": "semantic",
-        "displayName": "Safe Tint",
-        "tonalRamp": [
-          "oklch(15% 0.0208 161.46)",
-          "oklch(26% 0.0208 161.46)",
-          "oklch(38% 0.0208 161.46)",
-          "oklch(49% 0.0208 161.46)",
-          "oklch(61% 0.0208 161.46)",
-          "oklch(72% 0.0208 161.46)",
-          "oklch(84% 0.0208 161.46)",
-          "oklch(95% 0.0208 161.46)"
-        ]
-      },
-      "risk-tint": {
-        "role": "semantic",
-        "displayName": "Risk Tint",
-        "tonalRamp": [
-          "oklch(15% 0.0246 26.92)",
-          "oklch(26% 0.0246 26.92)",
-          "oklch(38% 0.0246 26.92)",
-          "oklch(49% 0.0246 26.92)",
-          "oklch(61% 0.0246 26.92)",
-          "oklch(72% 0.0246 26.92)",
-          "oklch(84% 0.0246 26.92)",
-          "oklch(95% 0.0246 26.92)"
-        ]
-      },
-      "pressed": {
-        "role": "primary",
-        "displayName": "Pressed",
-        "tonalRamp": [
-          "oklch(15% 0.0367 270.47)",
-          "oklch(26% 0.0367 270.47)",
-          "oklch(38% 0.0367 270.47)",
-          "oklch(49% 0.0367 270.47)",
-          "oklch(61% 0.0367 270.47)",
-          "oklch(72% 0.0367 270.47)",
-          "oklch(84% 0.0367 270.47)",
-          "oklch(95% 0.0367 270.47)"
-        ]
-      },
-      "button-disabled": {
-        "role": "neutral",
-        "displayName": "Button Disabled",
-        "tonalRamp": [
-          "oklch(15% 0.0976 268.21)",
-          "oklch(26% 0.0976 268.21)",
-          "oklch(38% 0.0976 268.21)",
-          "oklch(49% 0.0976 268.21)",
-          "oklch(61% 0.0976 268.21)",
-          "oklch(72% 0.0976 268.21)",
-          "oklch(84% 0.0976 268.21)",
-          "oklch(95% 0.0976 268.21)"
+          "oklch(15% 0.2349 13.34)",
+          "oklch(26% 0.2349 13.34)",
+          "oklch(38% 0.2349 13.34)",
+          "oklch(49% 0.2349 13.34)",
+          "oklch(61% 0.2349 13.34)",
+          "oklch(72% 0.2349 13.34)",
+          "oklch(84% 0.2349 13.34)",
+          "oklch(95% 0.2349 13.34)"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Page title; reduces on mobile."
+        "purpose": "Landing hero; responsive overrides in DESIGN.md."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Awaiting-analysis heading."
+        "purpose": "Landing intro and FAQ headings."
       },
-      "title": {
-        "displayName": "Title",
-        "purpose": "Composer and section headings."
+      "scanner-title": {
+        "displayName": "Scanner Title",
+        "purpose": "Scanner page heading."
+      },
+      "panel-title": {
+        "displayName": "Panel Title",
+        "purpose": "Composer heading."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "General text and email editor; editor line height is 1.75."
+        "purpose": "Reading text."
+      },
+      "editor": {
+        "displayName": "Editor",
+        "purpose": "Email input."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Field, example and utility labels."
+        "purpose": "Functional technical labels."
       },
-      "metadata": {
-        "displayName": "Metadata",
-        "purpose": "Privacy copy, counts and score context."
+      "navigation": {
+        "displayName": "Navigation",
+        "purpose": "Route navigation."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Primary action."
+      },
+      "score": {
+        "displayName": "Score",
+        "purpose": "Numerical score with tabular numerals."
       }
     },
     "shadows": [
       {
-        "name": "workspace",
-        "value": "0 12px 36px -24px #213e7b3d",
-        "purpose": "Diffuse ambient workspace separation."
+        "name": "shadow-neon",
+        "value": "0 0 5px #00ff88, 0 0 10px #00ff8840",
+        "purpose": "Outline-action hover and scan line."
       },
       {
-        "name": "editor-focus",
-        "value": "0 3px 12px -6px #244dcc55",
-        "purpose": "Focus-within cue around the editor."
+        "name": "shadow-neon-sm",
+        "value": "0 0 3px #00ff88, 0 0 6px #00ff8830",
+        "purpose": "Focus, current navigation and editor."
+      },
+      {
+        "name": "shadow-neon-lg",
+        "value": "0 0 10px #00ff88, 0 0 20px #00ff8860, 0 0 40px #00ff8830",
+        "purpose": "Declared tier; not currently applied."
+      },
+      {
+        "name": "shadow-secondary",
+        "value": "0 0 5px #ff00ff, 0 0 20px #ff00ff60",
+        "purpose": "Cancel hover."
+      },
+      {
+        "name": "shadow-tertiary",
+        "value": "0 0 5px #00d4ff, 0 0 20px #00d4ff60",
+        "purpose": "Terminal edge."
+      },
+      {
+        "name": "hero-console",
+        "value": "drop-shadow(0 12px 30px #00000090)",
+        "purpose": "Terminal depth."
       },
       {
         "name": "primary-hover",
-        "value": "0 5px 12px -6px #244dcc80",
-        "purpose": "Restrained primary-button hover feedback."
+        "value": "drop-shadow(0 0 8px #00ff8855)",
+        "purpose": "Action emission."
+      },
+      {
+        "name": "analysis-halo",
+        "value": "0 0 16px #00d4ff0f",
+        "purpose": "Empty/loading icon halo."
       }
     ],
     "motion": [
       {
         "name": "ease",
         "value": "cubic-bezier(.16, 1, .3, 1)",
-        "purpose": "Result arrival and arrow or disclosure feedback."
+        "purpose": "Shared easing."
       },
       {
         "name": "control-feedback",
-        "value": "160ms",
-        "purpose": "Button and field color or boundary transitions."
+        "value": "150ms",
+        "purpose": "Color, border, shadow and transform feedback."
       },
       {
-        "name": "icon-feedback",
-        "value": "180ms",
-        "purpose": "Primary arrow and disclosure rotation."
+        "name": "headline-glitch",
+        "value": "9s steps(1) infinite",
+        "purpose": "Brief corruption near the end of each cycle."
       },
       {
-        "name": "result-arrive",
-        "value": "220ms",
-        "purpose": "Opacity .45 to 1; reduced to 80ms for reduced motion."
+        "name": "cursor-blink",
+        "value": "1.4s step-end infinite",
+        "purpose": "Decorative terminal cursor."
+      },
+      {
+        "name": "border-emission",
+        "value": "8s linear infinite",
+        "purpose": "Slow edge hue variation."
       },
       {
         "name": "scan-sweep",
-        "value": "1600ms ease-in-out infinite alternate",
-        "purpose": "Loading scan line; disabled for reduced motion."
+        "value": "2.5s cubic-bezier(.16, 1, .3, 1) infinite",
+        "purpose": "Loading sweep without percentage."
       },
       {
-        "name": "waiting-pulse",
-        "value": "1400ms ease-in-out infinite alternate",
-        "purpose": "Loading rows; disabled for reduced motion."
+        "name": "loading-pulse",
+        "value": "2s ease-in-out infinite",
+        "purpose": "Second row delay .4s."
+      },
+      {
+        "name": "result-arrive",
+        "value": "250ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Opacity .35 to 1."
+      },
+      {
+        "name": "effects-paused",
+        "value": "animation: none !important",
+        "purpose": "Descendants and pseudo-elements."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none !important; scroll-behavior: auto !important; transition-duration: .01ms !important",
+        "purpose": "All elements and pseudo-elements under reduce preference."
       }
     ],
     "breakpoints": [
       {
         "name": "compact-desktop",
-        "value": "1050px"
+        "value": "1100px"
       },
       {
         "name": "stacked",
-        "value": "760px"
+        "value": "800px"
       },
       {
-        "name": "narrow",
-        "value": "400px"
+        "name": "narrow-mobile",
+        "value": "480px"
+      },
+      {
+        "name": "compact-header",
+        "value": "360px"
       }
     ]
   },
   "components": [
     {
-      "name": "Scan button",
+      "name": "Primary action",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Main action with hover, press and keyboard feedback.",
-      "html": "<button class=\"ds-primary\"><span>Scan Email</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16M14 6l6 6-6 6\"/></svg></button>",
-      "css": ".ds-primary{font-family:-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:.8125rem;line-height:1.6;cursor:pointer;display:inline-flex;align-items:center;justify-content:space-between;gap:26px;min-height:48px;min-width:173px;padding:11px 18px;border:1px solid var(--blue,#244dcc);border-radius:8px;background:var(--blue,#244dcc);color:var(--white,#fff);font-size:.875rem;font-weight:600;transition:background-color 160ms,box-shadow 160ms}.ds-primary:hover{background:var(--blue-dark,#1939a5);box-shadow:0 5px 12px -6px #244dcc80}.ds-primary svg{transition:transform 180ms cubic-bezier(.16,1,.3,1)}.ds-primary:hover svg{transform:translateX(3px)}.ds-primary:active{background:#142d84;box-shadow:none}.ds-primary:focus-visible { outline:3px solid var(--focus,#456deb); outline-offset:4px; }.ds-primary:disabled{background:#6379b6;border-color:#6379b6;cursor:not-allowed}@media(prefers-reduced-motion:reduce){.ds-primary svg{transition:none}.ds-primary:hover svg{transform:none}}"
+      "description": "Chamfered launch or scan action.",
+      "html": "<button class=\"ds-primary\">Scan Email<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16M14 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;gap:20px;min-height:52px;padding:13px 22px;border:2px solid var(--accent,#00ff88);background:var(--accent,#00ff88);color:var(--background,#0a0a0f);font:600 13px var(--font-body,monospace);text-transform:uppercase;letter-spacing:.07em;clip-path:polygon(0 7px,7px 0,calc(100% - 7px) 0,100% 7px,100% calc(100% - 7px),calc(100% - 7px) 100%,7px 100%,0 calc(100% - 7px));cursor:pointer;transition:background-color 150ms,transform 150ms var(--ease,cubic-bezier(.16,1,.3,1))}.ds-primary:hover:not(:disabled){background:var(--foreground,#e0e0e0);border-color:var(--foreground,#e0e0e0);filter:drop-shadow(0 0 8px #00ff8855)}.ds-primary:active:not(:disabled){transform:translateY(1px)}.ds-primary:focus-visible{clip-path:none;outline:2px solid var(--ring,#00ff88);outline-offset:5px;box-shadow:var(--shadow-neon-sm,0 0 3px #00ff88,0 0 6px #00ff8830);}.ds-primary:disabled{opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){button,a,textarea{transition-duration:.01ms}}"
     },
     {
-      "name": "Cancel button",
+      "name": "Terminal outline action",
       "kind": "button",
-      "refersTo": "button-secondary",
-      "description": "Secondary action available during scanning.",
+      "refersTo": "button-outline",
+      "description": "Loads the selected synthetic message.",
+      "html": "<button class=\"ds-outline\">Inspect this sample<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16M14 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-outline{display:flex;width:100%;justify-content:space-between;align-items:center;gap:16px;min-height:48px;padding:10px 16px;background:transparent;color:var(--accent,#00ff88);border:1px solid var(--accent,#00ff88);font:13px var(--font-label,monospace);letter-spacing:.05em;text-transform:uppercase;cursor:pointer;transition:color 150ms,background-color 150ms,box-shadow 150ms}.ds-outline:hover{background:var(--accent,#00ff88);color:var(--background,#0a0a0f);box-shadow:var(--shadow-neon,0 0 5px #00ff88,0 0 10px #00ff8840)}.ds-outline:focus-visible{outline:2px solid var(--ring,#00ff88);outline-offset:5px;box-shadow:var(--shadow-neon-sm,0 0 3px #00ff88,0 0 6px #00ff8830);}.ds-outline:disabled{opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){button,a,textarea{transition-duration:.01ms}}"
+    },
+    {
+      "name": "Cancel action",
+      "kind": "button",
+      "refersTo": "button-cancel",
+      "description": "Magenta secondary action during scanning.",
       "html": "<button class=\"ds-cancel\">Cancel scan</button>",
-      "css": ".ds-cancel{font-family:-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:.8125rem;line-height:1.6;cursor:pointer;min-height:44px;padding:10px 14px;border:1px solid var(--line,#dce2ef);border-radius:7px;background:transparent;color:var(--ink,#202c47)}.ds-cancel:hover{background:var(--soft-blue,#edf2ff)}.ds-cancel:active{background:#dce5ff}.ds-cancel:focus-visible { outline:3px solid var(--focus,#456deb); outline-offset:4px; }"
+      "css": ".ds-cancel{min-height:48px;padding:10px 16px;border:1px solid var(--accent-secondary,#ff00ff);color:var(--accent-secondary,#ff00ff);background:transparent;font:13px var(--font-label,monospace);text-transform:uppercase;cursor:pointer;transition:color 150ms,background-color 150ms,box-shadow 150ms}.ds-cancel:hover{color:var(--background,#0a0a0f);background:var(--accent-secondary,#ff00ff);box-shadow:var(--shadow-secondary,0 0 5px #ff00ff,0 0 20px #ff00ff60)}.ds-cancel:focus-visible{outline:2px solid var(--ring,#00ff88);outline-offset:5px;box-shadow:var(--shadow-neon-sm,0 0 3px #00ff88,0 0 6px #00ff8830);}@media(prefers-reduced-motion:reduce){button,a,textarea{transition-duration:.01ms}}"
     },
     {
       "name": "Text action",
       "kind": "button",
       "refersTo": "button-text",
-      "description": "Clear and utility actions.",
+      "description": "Clear text or tab results.",
       "html": "<button class=\"ds-text\">Clear text</button>",
-      "css": ".ds-text{font-family:-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:.8125rem;line-height:1.6;cursor:pointer;min-height:40px;padding:6px 2px;border:0;background:none;color:var(--blue,#244dcc);font-weight:600;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px}.ds-text:hover{text-decoration-color:currentColor}.ds-text:active{color:var(--blue-dark,#1939a5)}.ds-text:focus-visible { outline:3px solid var(--focus,#456deb); outline-offset:4px; }.ds-text:disabled{color:#737e91;text-decoration:none;cursor:not-allowed}"
+      "css": ".ds-text{display:inline-flex;align-items:center;min-height:44px;padding:8px 0;color:var(--accent,#00ff88);background:none;border:0;font:12px var(--font-label,monospace);cursor:pointer}.ds-text:hover:not(:disabled){text-decoration:underline;text-underline-offset:5px}.ds-text:focus-visible{outline:2px solid var(--ring,#00ff88);outline-offset:5px;box-shadow:var(--shadow-neon-sm,0 0 3px #00ff88,0 0 6px #00ff8830);}.ds-text:disabled{opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){button,a,textarea{transition-duration:.01ms}}"
     },
     {
-      "name": "Example control",
+      "name": "Synthetic example",
       "kind": "chip",
       "refersTo": "example-chip",
-      "description": "Synthetic sample selection, represented here in its selected state.",
-      "html": "<button class=\"ds-example\" aria-pressed=\"true\">Everyday email</button>",
-      "css": ".ds-example{font-family:-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:.8125rem;line-height:1.6;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:7px 10px;border:1px solid var(--line,#dce2ef);border-radius:7px;background:var(--white,#fff);color:#41506b;transition:color 160ms,background-color 160ms,border-color 160ms}.ds-example:hover{border-color:#a6b8eb;color:var(--blue,#244dcc);background:#f6f8ff}.ds-example[aria-pressed=\"true\"]{background:var(--soft-blue,#edf2ff);border-color:#91a9ef;color:var(--blue-dark,#1939a5)}.ds-example:active{background:#dce5ff}.ds-example:focus-visible { outline:3px solid var(--focus,#456deb); outline-offset:4px; }.ds-example:disabled{opacity:.55;cursor:not-allowed}"
+      "description": "Real selection button with a visible label and pressed state.",
+      "html": "<button class=\"ds-example\" aria-pressed=\"true\">Account alert</button>",
+      "css": ".ds-example{min-height:44px;padding:8px 10px;background:transparent;border:1px solid var(--border,#2a2a3a);color:var(--muted-foreground,#a1a4b4);font:12px var(--font-label,monospace);cursor:pointer;transition:color 150ms,border-color 150ms,background-color 150ms}.ds-example:hover:not(:disabled),.ds-example[aria-pressed=\"true\"]{border-color:var(--accent,#00ff88);background:#00ff880a;color:var(--accent,#00ff88)}.ds-example:focus-visible{outline:2px solid var(--ring,#00ff88);outline-offset:5px;box-shadow:var(--shadow-neon-sm,0 0 3px #00ff88,0 0 6px #00ff8830);}.ds-example:disabled{opacity:.5;cursor:not-allowed}@media(max-width:480px){.ds-example{padding:8px;font-size:11px}}@media(prefers-reduced-motion:reduce){button,a,textarea{transition-duration:.01ms}}"
     },
     {
       "name": "Email editor",
       "kind": "input",
       "refersTo": "editor",
-      "description": "Labeled, resizable plain-text input with muted placeholder and keyboard focus.",
-      "html": "<div class=\"ds-editor\"><label for=\"ds-email\">Paste email content</label><textarea id=\"ds-email\" placeholder=\"Paste the message you’d like to check…\"></textarea><span class=\"ds-meta\">Plain text works best</span></div>",
-      "css": ".ds-editor{font-family:-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;max-width:520px;border:1px solid #bbc7dc;border-radius:10px;color:var(--ink,#202c47);background:var(--white,#fff);transition:border-color 160ms,box-shadow 160ms}.ds-editor:focus-within{border-color:var(--blue,#244dcc);box-shadow:0 3px 12px -6px #244dcc55}.ds-editor label{display:block;padding:14px 14px 4px;font-size:.8125rem;font-weight:600}.ds-editor textarea{display:block;box-sizing:border-box;width:100%;min-height:220px;border:0;border-radius:8px;padding:8px 16px 16px;font:inherit;font-size:.9375rem;line-height:1.75;color:var(--ink,#202c47);background:transparent;resize:vertical;caret-color:var(--blue,#244dcc)}.ds-editor textarea::placeholder{color:var(--muted,#596780)}.ds-editor textarea:focus-visible{outline:2px solid #456deb;outline-offset:-5px}.ds-meta{display:block;padding:8px 16px 12px;font-size:.75rem;color:var(--muted,#596780)}"
+      "description": "Square labeled input with visible focus boundary.",
+      "html": "<div class=\"ds-editor\"><label for=\"ds-email\">Paste email content</label><textarea id=\"ds-email\" placeholder=\"> Paste the message you’d like to check…\"></textarea><span>Plain text works best</span></div>",
+      "css": ".ds-editor{background:var(--background,#0a0a0f);border:1px solid var(--border,#2a2a3a);transition:border-color 150ms,box-shadow 150ms}.ds-editor:focus-within{border-color:var(--accent,#00ff88);box-shadow:var(--shadow-neon-sm,0 0 3px #00ff88,0 0 6px #00ff8830)}.ds-editor label{display:block;padding:16px;border-bottom:1px solid var(--border,#2a2a3a);color:var(--accent,#00ff88);font:12px var(--font-label,monospace)}.ds-editor textarea{display:block;resize:vertical;width:100%;min-height:220px;padding:20px 16px;background:var(--background,#0a0a0f);color:var(--foreground,#e0e0e0);border:0;border-radius:0;font:13px/1.9 var(--font-body,monospace);caret-color:var(--accent,#00ff88)}.ds-editor textarea::placeholder{color:var(--muted-foreground,#a1a4b4);opacity:1}.ds-editor textarea:focus-visible{outline:1px solid var(--ring,#00ff88);outline-offset:-4px}.ds-editor>span{display:block;padding:12px 16px;border-top:1px solid var(--border,#2a2a3a);color:var(--muted-foreground,#a1a4b4);font:11px var(--font-label,monospace)}@media(prefers-reduced-motion:reduce){button,a,textarea{transition-duration:.01ms}}"
     },
     {
-      "name": "Main navigation",
+      "name": "Route navigation",
       "kind": "nav",
       "refersTo": "navigation-current",
-      "description": "Current destination and current-tab count badge.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Example navigation\"><a class=\"ds-current\" href=\"#scanner\">Scanner</a><a href=\"#session-results\">This session <span>2</span></a></nav>",
-      "css": ".ds-nav{display:flex;gap:32px;min-height:80px;background:var(--white,#fff);font-family:-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif}.ds-nav a{position:relative;display:flex;align-items:center;gap:8px;color:var(--muted,#596780);font-size:.875rem;font-weight:600;text-decoration:none}.ds-nav a:hover,.ds-nav .ds-current{color:var(--blue,#244dcc)}.ds-current::after{position:absolute;content:\"\";bottom:0;left:0;right:0;height:2px;background:var(--blue,#244dcc)}.ds-nav span{display:inline-grid;place-items:center;min-width:21px;height:21px;padding:0 5px;border-radius:6px;background:var(--soft-blue,#edf2ff);color:var(--blue,#244dcc);font-size:.75rem;font-variant-numeric:tabular-nums}.ds-nav a:focus-visible { outline:3px solid var(--focus,#456deb); outline-offset:4px; }"
+      "description": "Current route uses green text and underline.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#home\">Overview</a><a href=\"#scanner\" aria-current=\"page\">Scanner <span>2</span></a></nav>",
+      "css": ".ds-nav{display:flex;gap:32px;min-height:80px;background:var(--background,#0a0a0f)}.ds-nav a{display:flex;align-items:center;position:relative;gap:8px;color:var(--muted-foreground,#a1a4b4);font:14px var(--font-label,monospace);text-transform:uppercase;letter-spacing:.08em;text-decoration:none;transition:color 150ms}.ds-nav a:hover,.ds-nav a[aria-current]{color:var(--accent,#00ff88)}.ds-nav a[aria-current]::after{content:\"\";position:absolute;bottom:-1px;height:2px;width:100%;background:var(--accent,#00ff88);box-shadow:var(--shadow-neon-sm,0 0 3px #00ff88,0 0 6px #00ff8830)}.ds-nav span{font:12px var(--font-label,monospace);color:var(--accent,#00ff88);border:1px solid var(--border,#2a2a3a);min-width:22px;padding:2px 4px;text-align:center}.ds-nav a:focus-visible{outline:2px solid var(--ring,#00ff88);outline-offset:5px;box-shadow:var(--shadow-neon-sm,0 0 3px #00ff88,0 0 6px #00ff8830);}@media(max-width:480px){.ds-nav{gap:14px}.ds-nav a{font-size:11px;letter-spacing:.02em}}@media(max-width:360px){.ds-nav{gap:8px}.ds-nav span{min-width:18px;padding:1px 3px;font-size:10px}}@media(prefers-reduced-motion:reduce){button,a,textarea{transition-duration:.01ms}}"
     },
     {
-      "name": "Workspace surface",
+      "name": "Technical workspace",
       "kind": "card",
-      "refersTo": "workspace",
-      "description": "Shared white composer and pale blue analysis container.",
-      "html": "<section class=\"ds-workspace\"><div class=\"ds-composer\"><h2>Give it a second look.</h2><p>Paste a message below, or explore a sample.</p></div><aside class=\"ds-analysis\"><h2>Analysis</h2><p>Your scan results will appear here.</p></aside></section>",
-      "css": ".ds-workspace{font-family:-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);border:1px solid var(--line,#dce2ef);border-radius:18px;background:var(--white,#fff);box-shadow:0 12px 36px -24px #213e7b3d;color:var(--ink,#202c47)}.ds-composer{padding:32px;min-width:0}.ds-analysis{min-width:0;padding:28px;background:#eef3ff;border-left:1px solid var(--line,#dce2ef);border-radius:0 17px 17px 0}.ds-workspace h2{font-size:1.25rem;font-weight:680;line-height:1.35;letter-spacing:-.025em;margin:0 0 8px}.ds-workspace p{font-size:.875rem;line-height:1.6;color:var(--muted,#596780);margin:0}@media(max-width:760px){.ds-workspace{grid-template-columns:minmax(0,1fr)}.ds-analysis{border-left:0;border-top:1px solid var(--line,#dce2ef);border-radius:0 0 17px 17px}}"
+      "refersTo": "panel",
+      "description": "Chamfered composer/analysis frame with tonal division.",
+      "html": "<section class=\"ds-frame\"><div class=\"ds-workspace\"><div class=\"ds-composer\"><h2>Give it a second look.</h2><p>Paste a message, or explore a sample.</p></div><aside class=\"ds-analysis\"><span>Analysis</span><p>Ready when you are</p></aside></div></section>",
+      "css": ".ds-frame{padding:1px;background:var(--border,#2a2a3a);clip-path:polygon(0 14px,14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px))}.ds-workspace{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);gap:1px}.ds-composer{background:var(--card,#12121a);padding:32px;min-width:0}.ds-analysis{background:var(--background,#0a0a0f);padding:32px;min-width:0}.ds-composer h2{color:var(--foreground,#e0e0e0);font:800 20px/1.2 var(--font-heading,monospace);text-transform:uppercase;letter-spacing:.025em;margin:0 0 12px}.ds-workspace p{font:12px/1.75 var(--font-body,monospace);color:var(--muted-foreground,#a1a4b4)}.ds-analysis>span{font:12px var(--font-label,monospace);color:var(--accent-tertiary,#00d4ff);letter-spacing:.12em;text-transform:uppercase}@media(max-width:1100px){.ds-composer,.ds-analysis{padding:24px}}@media(max-width:800px){.ds-workspace{grid-template-columns:1fr}.ds-composer,.ds-analysis{padding:28px}}@media(max-width:480px){.ds-composer,.ds-analysis{padding:24px 20px}}@media(prefers-reduced-motion:reduce){button,a,textarea{transition-duration:.01ms}}"
     },
     {
-      "name": "Session result row",
+      "name": "Session result",
       "kind": "custom",
       "refersTo": "session-row",
-      "description": "Flat selectable result row with text-backed semantic color.",
-      "html": "<button class=\"ds-session\" aria-pressed=\"true\"><strong>Scan 1</strong><span class=\"ds-safe\">Spam: No threat detected</span><span class=\"ds-safe\">Phishing: No threat detected</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16M14 6l6 6-6 6\"/></svg></button>",
-      "css": ".ds-session{font-family:-apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif;font-size:.8125rem;line-height:1.6;cursor:pointer;display:grid;width:100%;grid-template-columns:110px 1fr 1fr 20px;align-items:center;gap:20px;text-align:left;padding:18px 12px;border:0;border-top:1px solid var(--line,#dce2ef);border-bottom:1px solid var(--line,#dce2ef);color:var(--ink,#202c47);background:transparent;transition:background-color 150ms}.ds-safe{color:var(--safe,#23633d)}.ds-session:hover{background:#e8eefc}.ds-session[aria-pressed=\"true\"]{background:var(--soft-blue,#edf2ff)}.ds-session:active{background:#dce5ff}.ds-session:focus-visible { outline:3px solid var(--focus,#456deb); outline-offset:4px; }@media(max-width:760px){.ds-session{grid-template-columns:1fr 20px;gap:5px 12px;padding:14px 8px}.ds-session span{grid-column:1}.ds-session svg{grid-column:2;grid-row:1/4}}"
+      "description": "Flat result with explicit selected state.",
+      "html": "<button class=\"ds-session\" aria-pressed=\"true\"><span>Scan 1</span><span class=\"ds-safe\">Spam: No threat detected</span><span class=\"ds-risk\">Phishing: Phishing detected</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 12h16M14 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-session{display:grid;width:100%;grid-template-columns:.65fr 1fr 1fr 20px;gap:16px;align-items:center;text-align:left;min-height:72px;padding:16px;background:var(--background,#0a0a0f);color:var(--foreground,#e0e0e0);border:0;border-bottom:1px solid var(--border,#2a2a3a);font:12px/1.6 var(--font-label,monospace);cursor:pointer;transition:background-color 150ms}.ds-session:hover:not(:disabled),.ds-session[aria-pressed=\"true\"]{background:#00ff8808}.ds-safe,.ds-session>svg{color:var(--accent,#00ff88)}.ds-risk{color:var(--destructive,#ff3366)}.ds-session:focus-visible{outline:2px solid var(--ring,#00ff88);outline-offset:5px;box-shadow:var(--shadow-neon-sm,0 0 3px #00ff88,0 0 6px #00ff8830);}.ds-session:disabled{opacity:.5;cursor:not-allowed}@media(max-width:800px){.ds-session{grid-template-columns:1fr auto;gap:8px}.ds-session>span{grid-column:1}.ds-session>svg{grid-column:2;grid-row:1/4}}@media(prefers-reduced-motion:reduce){button,a,textarea{transition-duration:.01ms}}"
     }
   ],
   "narrative": {
-    "northStar": "Cobalt actions and cool white surfaces",
-    "overview": "This existing scanner uses cobalt actions, cool white surfaces and a quiet blue analysis region. Its interface is a compact working tool for a school demonstration: the input, primary action and model output remain easy to locate.\n\nA system sans-serif stack gives headings, controls and numerical results one consistent voice. Thin boundaries and restrained shadows distinguish interactive areas; outline SVG icons support labels without replacing them.",
+    "northStar": "Neon message intercept",
+    "overview": "Email Guardian uses the user-pinned cyberpunk/glitch world: a void-black ground, neon signals, angular technical frames and terminal typography. Green leads actions, cyan carries analysis and magenta creates interruptions. The visual energy supports a school demonstration whose text input and two model outputs remain clear.\n\nThe materials are made in code: a faint grid, SVG noise, CRT scanlines, outlined icons and chamfered frames. Occasional headline corruption, a terminal cursor and slow border emission provide atmosphere. The shared pause control stops animations across both surfaces, and the system reduced-motion preference removes animation and reduces transitions.",
     "keyCharacteristics": [
-      "Cobalt primary actions with cool neutral boundaries.",
-      "System sans-serif hierarchy and tabular numerical scores.",
-      "Editor and analysis share one responsive workspace.",
-      "Semantic result colors are accompanied by text and icons."
+      "Mandatory dark surfaces with green, magenta and cyan signals.",
+      "Orbitron headings, JetBrains Mono reading text and Share Tech Mono labels.",
+      "Chamfered frames, thin borders and restrained neon emission.",
+      "Readable supporting text, visible focus and text-backed result semantics.",
+      "Code-native textures and stoppable motion; no shipping raster imagery."
     ],
     "rules": [
       {
-        "name": "Action Color",
-        "body": "Use cobalt for primary actions, current navigation and focus-related emphasis; reserve green and red for result and error semantics.",
+        "name": "Readable Signal",
+        "body": "Use muted-foreground for supporting reading text and placeholders. Keep dim for decorative use only; it is not the reading-text color.",
         "section": "colors"
       },
       {
-        "name": "Readable State",
-        "body": "Keep placeholder text at the muted text color and communicate errors, selection and results with more than color alone.",
+        "name": "Meaning Beyond Color",
+        "body": "Pair risk, safe, selected and error states with text, icons or semantic control state. Green is also the action color, so color alone cannot explain a result.",
         "section": "colors"
       },
       {
-        "name": "One Type Family",
-        "body": "Use the system sans-serif stack throughout this operating interface, with weight and size establishing hierarchy.",
+        "name": "Three Voices",
+        "body": "Use Orbitron for display and major headings, JetBrains Mono for reading and numerical scores, and Share Tech Mono for compact labels and navigation.",
         "section": "typography"
+      },
+      {
+        "name": "Emission, Not Lift",
+        "body": "Use dark tonal layers and thin boundaries for structure; neon glow reinforces a signal or interaction rather than turning every surface into a floating card.",
+        "section": "elevation"
       }
     ],
     "dos": [
-      "Do use the cobalt action palette and cool white or pale blue surfaces.",
-      "Do retain visible keyboard focus, descriptive labels and text alongside result colors.",
-      "Do stack the editor before analysis on narrow screens and allow labels to wrap.",
-      "Do use the authored outline SVG icon family consistently.",
-      "Do retain the model caveat and clearly label synthetic examples."
+      "Do retain the mandatory dark palette and the three locally bundled font families.",
+      "Do use muted-foreground for supporting copy and keep reading contrast independent of texture.",
+      "Do preserve the shared motion pause control and reduced-motion treatment.",
+      "Do retain keyboard focus, text-backed result states and native score disclosures.",
+      "Do stack the editor before analysis and keep navigation usable at the 360px breakpoint.",
+      "Do label synthetic examples and keep the model caveat visible."
     ],
     "donts": [
-      "Don't use semantic green or red as an unrelated decorative accent.",
-      "Don't present loading as a numerical percentage or imply model certainty.",
-      "Don't introduce unsupported school branding, benchmarks or testimonials.",
-      "Don't make mobile heading line breaks depend on the desktop composition."
+      "Don't revive the obsolete cobalt/white visual system.",
+      "Don't use dim as paragraph, placeholder or small-label reading text.",
+      "Don't add light mode, rounded card styling or stock raster artwork to this pinned world.",
+      "Don't imply live inbox protection, guaranteed safety, benchmark accuracy or numerical loading progress.",
+      "Don't turn descriptive labels into decorative preheading kickers."
     ]
   }
 }
