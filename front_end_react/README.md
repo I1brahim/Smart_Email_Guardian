@@ -17,3 +17,17 @@ labels are accepted; unknown labels and malformed probabilities show an error.
 
 Model scores are not calibrated safety guarantees. The interface warns users
 to verify unexpected links and requests even when both models predict legit.
+
+## School demo interactions
+
+- Try one of three clearly labeled synthetic samples, then scan it yourself.
+  Choosing a sample never sends a request automatically.
+- Use Ctrl+Enter (or Command+Enter) to scan. The live counter shows the input
+  limit. Clear text and Cancel scan retain predictable keyboard focus.
+- Expand each model's class scores, compare samples, and reopen any of the last
+  20 results in the current tab. Reloading clears the session.
+- The input and analysis sit side by side on larger screens and stack on phones.
+  Motion communicates waiting/results and respects reduced-motion preferences.
+
+This is a school demonstration. Synthetic examples do not guarantee a particular
+prediction and are not measurements of model accuracy.
