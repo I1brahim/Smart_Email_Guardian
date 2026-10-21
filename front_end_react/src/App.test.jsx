@@ -138,24 +138,34 @@ test('a network failure has a readable recovery and preserves input', async () =
   expect(screen.getByLabelText('Paste email content')).toHaveValue('PRIVATE_INPUT_MARKER');
 });
 
-test('landing introduces the project without sending a message', () => {
+test('landing explains the scanner before sending a message', () => {
   window.history.replaceState(null, '', '/');
   render(<App />);
-  expect(screen.getByRole('heading', { level: 1 })).toHaveAccessibleName('Think before you click.');
-  expect(screen.getAllByRole('link', { name: 'Launch scanner' })).toHaveLength(2);
+  expect(screen.getByRole('heading', { level: 1 })).toHaveAccessibleName('Is this email spam or phishing?');
+  expect(screen.getAllByRole('link', { name: 'Check an email' })).toHaveLength(2);
+  expect(screen.getByText(/two machine-learning models/)).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Try a sample' })).toHaveAttribute('href', '#sample-preview');
   expect(screen.queryByLabelText('Paste email content')).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', { name: 'Everyday email' }));
-  expect(screen.getByLabelText('Synthetic message preview')).toHaveTextContent('study group');
+  expect(screen.getByLabelText('Try a synthetic email sample')).toHaveTextContent('study group');
   expect(fetch).not.toHaveBeenCalled();
 });
 
-test('landing sample opens an editable scanner without auto-submitting', async () => {
+test('landing sample runs the real scan and shows both classifications', async () => {
   window.history.replaceState(null, '', '/');
+  fetch.mockResolvedValue({ ok: true, json: async () => result('spam', 'phishing email') });
   render(<App />);
-  fireEvent.click(screen.getByRole('button', { name: 'Inspect this sample' }));
+  fireEvent.click(screen.getByRole('button', { name: 'Run sample scan' }));
+  expect(await screen.findByText('Results for this sample')).toBeInTheDocument();
+  expect(screen.getAllByText('Pattern detected')).toHaveLength(2);
+  expect(fetch).toHaveBeenCalledTimes(1);
+  expect(JSON.parse(fetch.mock.calls[0][1].body).email).toContain('account will be suspended');
+  expect(screen.queryByText(/SERVER_ECHO_MUST_BE_DISCARDED/)).not.toBeInTheDocument();
+  expect(localStorage.length).toBe(0);
+  fireEvent.click(screen.getByRole('button', { name: 'Edit this sample in the scanner' }));
   expect((await screen.findByLabelText('Paste email content')).value).toContain('account will be suspended');
   expect(screen.getByLabelText('Paste email content')).toHaveFocus();
-  expect(fetch).not.toHaveBeenCalled();
+  expect(fetch).toHaveBeenCalledTimes(1);
 });
 
 test('navigation preserves in-memory results and never repeats a scan', async () => {
@@ -163,7 +173,7 @@ test('navigation preserves in-memory results and never repeats a scan', async ()
   render(<App />); submit();
   await screen.findByRole('heading', { name: 'Scan results' });
   act(() => { window.location.hash = 'home'; window.dispatchEvent(new HashChangeEvent('hashchange')); });
-  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Think before');
+  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Is this email');
   act(() => { window.location.hash = 'scanner'; window.dispatchEvent(new HashChangeEvent('hashchange')); });
   expect(screen.getByRole('button', { name: 'View result 1' })).toBeInTheDocument();
   expect(fetch).toHaveBeenCalledTimes(1);
@@ -184,7 +194,7 @@ test('a landing sample cannot replace text while a scan is running', async () =>
   }));
   render(<App />); submit();
   act(() => { window.location.hash = 'home'; window.dispatchEvent(new HashChangeEvent('hashchange')); });
-  expect(screen.getByRole('button', { name: 'Inspect this sample' })).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'Scan in progress…' })).toBeDisabled();
   act(() => { window.location.hash = 'scanner'; window.dispatchEvent(new HashChangeEvent('hashchange')); });
   fireEvent.click(screen.getByRole('button', { name: 'Cancel scan' }));
   await screen.findByText('Scan cancelled. Your text is still here.');

@@ -19,6 +19,9 @@ export default function App() {
   const [result, setResult] = useState(null);
   const [history, setHistory] = useState([]);
   const [selectedExample, setSelectedExample] = useState(null);
+  const [previewResult, setPreviewResult] = useState(null);
+  const [previewError, setPreviewError] = useState('');
+  const [activeSampleId, setActiveSampleId] = useState(null);
   const [selectedResult, setSelectedResult] = useState(null);
   const activeRequest = useRef(null);
   const nextId = useRef(1);
@@ -33,11 +36,13 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
   useEffect(() => {
-    document.title = scanner ? 'Scanner | Email Guardian' : 'Email Guardian | Think before you click';
+    document.title = scanner ? 'Scanner | Email Guardian' : 'Email Guardian | Check email text for spam and phishing';
     const target = document.getElementById(route.slice(1) || 'home');
     const scrollTarget = !route || route === '#home' || route === '#scanner' ? document.getElementById('site-top') : target;
     scrollTarget?.scrollIntoView?.({ block: 'start' });
-    if (route === '#scanner' || route === '#home') target?.focus({ preventScroll: true });
+    // Loading a sample intentionally focuses its editor; a later hashchange
+    // must not steal that focus back to the scanner container.
+    if (route === '#home' || (route === '#scanner' && selectedExample === null)) target?.focus({ preventScroll: true });
   }, [route, scanner]);
 
   useEffect(() => () => {
@@ -71,38 +76,54 @@ export default function App() {
     }
   }, [scanner, scanning]);
 
-  async function handleSubmit(event) {
-    event.preventDefault();
+  async function runScan(text, source = 'editor', sampleId = null) {
     if (activeRequest.current) return;
-    setError(''); setNotice(''); setResult(null); setSelectedResult(null);
-    if (!email.trim()) { setError('Please enter email text.'); inputRef.current?.focus(); return; }
-    if (email.length > 50000) { setError('Email text is too long. The limit is 50,000 characters.'); return; }
+    setError(''); setNotice(''); setPreviewError('');
+    if (source === 'editor') { setResult(null); setSelectedResult(null); }
+    if (!text.trim()) { setError('Please enter email text.'); inputRef.current?.focus(); return; }
+    if (text.length > 50000) { setError('Email text is too long. The limit is 50,000 characters.'); return; }
     const request = { controller: new AbortController(), cancelled: false, timedOut: false, disposed: false };
     activeRequest.current = request;
+    setActiveSampleId(source === 'sample' ? sampleId : null);
     const timeout = setTimeout(() => { request.timedOut = true; request.controller.abort(); }, 30000);
     setScanning(true);
     try {
-      const data = await scanEmail(email, request.controller.signal);
+      const data = await scanEmail(text, request.controller.signal);
       if (request.disposed || request.cancelled || request.timedOut) return;
       const entry = { id: nextId.current++, result: data };
-      setResult(data); setSelectedResult(entry.id); setEmail(''); setSelectedExample(null);
+      setResult(data); setSelectedResult(entry.id);
+      if (source === 'editor') { setEmail(''); setSelectedExample(null); }
       setHistory(previous => [entry, ...previous].slice(0, 20));
+      if (source === 'sample') setPreviewResult({ id: sampleId, result: data });
     } catch (failure) {
       if (request.disposed) return;
-      if (request.cancelled) setNotice('Scan cancelled. Your text is still here.');
-      else if (request.timedOut || failure.name === 'AbortError') setError('Scan timed out. Please try again.');
-      else setError(failure instanceof TypeError ? 'Could not connect to the scanner. Please try again.' : failure.message);
+      const message = request.cancelled ? 'Scan cancelled.'
+        : request.timedOut || failure.name === 'AbortError' ? 'Scan timed out. Please try again.'
+          : failure instanceof TypeError ? 'Could not connect to the scanner. Please try again.' : failure.message;
+      if (source === 'sample') setPreviewError({ id: sampleId, message });
+      else if (request.cancelled) setNotice('Scan cancelled. Your text is still here.');
+      else setError(message);
     } finally {
       clearTimeout(timeout);
       if (activeRequest.current === request) activeRequest.current = null;
-      if (!request.disposed) setScanning(false);
+      if (!request.disposed) { setScanning(false); setActiveSampleId(null); }
     }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    void runScan(email);
+  }
+
+  function scanLandingExample(example) {
+    setPreviewResult(null);
+    void runScan(example.text, 'sample', example.id);
   }
 
   function cancelScan() {
     if (!activeRequest.current) return;
     activeRequest.current.cancelled = true;
-    focusInput.current = true;
+    focusInput.current = scanner;
     activeRequest.current.controller.abort();
   }
 
@@ -114,7 +135,7 @@ export default function App() {
   return <div className={`app-shell${paused ? ' effects-paused' : ''}`}>
     <a className="skip-link" href={scanner ? '#scanner' : '#home'}>Skip to main content</a>
     <Header scanner={scanner} count={history.length} paused={paused} onToggleMotion={() => setPaused(value => !value)} />
-    {!scanner ? <Landing onLoadExample={loadLandingExample} scanning={scanning} /> : <main className="scanner-page" id="scanner" tabIndex="-1">
+    {!scanner ? <Landing onLoadExample={loadLandingExample} onScanExample={scanLandingExample} onCancelScan={cancelScan} previewResult={previewResult} previewError={previewError} scanning={scanning} activeSampleId={activeSampleId} /> : <main className="scanner-page" id="scanner" tabIndex="-1">
       <a className="back-link" href="#home"><Icon name="arrow" />Back to overview</a>
       <div className="page-heading"><div><h1>Email Security Scanner</h1><p>Check email text for spam and phishing patterns.</p></div></div>
       <div className="workspace cyber-panel">
@@ -136,7 +157,7 @@ export default function App() {
       </div>
 
       <section id="session-results" className="session-section" aria-label="Session results">
-        {history.length > 0 ? <><div className="section-heading"><div><h2>Results in this tab</h2><p>Up to 20 recent results; email contents are excluded.</p></div><button className="text-button clear-results" onClick={() => { setHistory([]); setResult(null); setSelectedResult(null); }}>Clear results<Icon name="close" /></button></div>
+        {history.length > 0 ? <><div className="section-heading"><div><h2>Results in this tab</h2><p>Up to 20 recent results; email contents are excluded.</p></div><button className="text-button clear-results" onClick={() => { setHistory([]); setResult(null); setSelectedResult(null); setPreviewResult(null); setPreviewError(''); }}>Clear results<Icon name="close" /></button></div>
           <ol className="session-list">{history.map(entry => <li key={entry.id}><button className="session-result" aria-label={`View result ${entry.id}`} aria-pressed={selectedResult === entry.id} disabled={scanning} onClick={() => viewResult(entry)}><span className="session-number"><Icon name="mail" />Scan {entry.id}</span><span className={entry.result.spam.label === 'legit' ? 'safe' : 'risk'}>Spam: {displayLabel(entry.result.spam.label)}</span><span className={entry.result.phishing.label === 'legit' ? 'safe' : 'risk'}>Phishing: {displayLabel(entry.result.phishing.label)}</span><Icon name="arrow" /></button></li>)}</ol>
         </> : <div className="session-empty"><Icon name="clock" /><div><h2>Your session starts with a scan.</h2><p>Recent results appear here. Nothing is saved after you leave.</p></div></div>}
       </section>
