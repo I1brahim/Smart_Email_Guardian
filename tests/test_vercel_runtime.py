@@ -42,6 +42,7 @@ def test_vercel_config_routes_same_origin_to_function():
     assert config["functions"]["api/scan.py"]["includeFiles"] == "guardian_backend/**"
     assert (FRONTEND / ".python-version").read_text(encoding="utf-8").strip() == "3.13"
     assert (ROOT / ".python-version").read_text(encoding="utf-8").strip() == "3.13"
+    assert not (ROOT / "requirements.txt").exists()
     manifest = tomllib.loads((FRONTEND / "pyproject.toml").read_text(encoding="utf-8"))
     assert manifest["project"]["requires-python"] == ">=3.13,<3.14"
     requirements = {

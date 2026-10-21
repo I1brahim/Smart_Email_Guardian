@@ -10,7 +10,7 @@ Use Python 3.13 and Node 24. From the repository root:
 ```sh
 python -m venv .venv
 # Activate .venv using your shell's activation command.
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-dev.txt
 python -m back_end_flask.app
 ```
 
