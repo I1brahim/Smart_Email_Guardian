@@ -38,14 +38,23 @@ npm run build
 CI checks Python on Windows and Linux, the browser components, production build,
 and the backend container. It does not deploy or publish model artifacts.
 
-For separate frontend/API origins, set `VITE_API_BASE_URL` at frontend build time
-and set an explicit backend `CORS_ORIGINS` allowlist at runtime. Configure the
-hosting CSP `connect-src` to permit that API origin. No production URL is baked
-into this source. Build output remains `front_end_react/build`.
+The existing Vercel frontend project deploys from `front_end_react/`. Its `/scan`
+route now reaches a Python Function in that same project. The function uses a
+checked-in copy of the reviewed Flask runtime and model files. After changing
+anything in `back_end_flask/app.py`, `inference.py`, `models/`, or its pinned
+requirements, run `python scripts/sync_vercel_backend.py`; CI checks that the
+Vercel copy remains identical. Python 3.13 is selected for the deployed model
+artifacts. No external backend address or cross-origin permission is needed for
+the normal deployment.
+
+For a separately hosted API, set `VITE_API_BASE_URL` at frontend build time and
+set an explicit backend `CORS_ORIGINS` allowlist at runtime. Configure the
+hosting CSP `connect-src` to permit that API origin. Build output remains
+`front_end_react/build`.
 
 The API response no longer includes `email` and `/history` now returns 410.
-Deploy the frontend and API changes together after owner review; the old UI
-expects echoed contents. Existing deployed data is not removed by these changes.
+The Vercel frontend and Python Function deploy from the same Git commit.
+Existing data at any retired backend is not removed by these changes.
 See [privacy and API behavior](docs/privacy-api.md).
 
 For repeatable model training, metrics and fingerprinted artifacts, see

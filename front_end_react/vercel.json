@@ -1,5 +1,15 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/scan.py": {
+      "maxDuration": 60,
+      "includeFiles": "guardian_backend/**",
+      "excludeFiles": "{node_modules/**,build/**,src/**,public/**}"
+    }
+  },
+  "rewrites": [
+    { "source": "/scan", "destination": "/api/scan" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -4,6 +4,11 @@ Use Node 24, then `npm ci`, `npm start`, `npm test` and `npm run build`.
 The development server is http://localhost:3000; `/scan` proxies to the local
 Flask API at http://127.0.0.1:5000. Production files are emitted to `build/`.
 
+Production `/scan` is rewritten to this project's Python Function. Its source
+and model files under `guardian_backend/` are synchronized from the canonical
+Flask backend with `python scripts/sync_vercel_backend.py` at repository root;
+the Python tests reject any drift. The deployment pins Python 3.13.
+
 `VITE_API_BASE_URL` optionally sets a separate API origin at build time. Without
 it, scanning uses same-origin `/scan`. Configure the API's exact CORS allowlist
 and the host's CSP `connect-src` when using separate origins. Secrets never
